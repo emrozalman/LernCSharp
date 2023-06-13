@@ -1650,64 +1650,6 @@ static void Main(string[] args)
 }
 
 63-
-[Fact]
-public void MethodToTest_ValidCall()
-{
-	using (var mock = AutoMock.GetLoose())
-	{
-		List<Band> expected = new List<Band>();
-		expected.Add(new Band { Name = "Masud" });
-
-		mock.Mock<IRepository>()
-			.Setup(x => x.GetBands())
-			.Returns(expected);
-
-		var cls = mock.Create<BandController>();
-		var actual = cls.MethodToTest();	
-
-		Assert.Equal(expected.Count, actual.Count);
-	}
-}
-
-64-
-[Fact]
-public void MethodToTest_ValidCall()
-{
-	using (var mock = AutoMock.GetLoose())
-	{
-		var expected = new List<Band>();
-		expected.Add(new Band
-		{
-			Name = "Farhad Darya",
-			Origin = "Kabul",
-			Genre = "Qais Ulfat",
-			BestSong = "Ba Lab Harf"
-		});
-		expected.Add(new Band
-		{
-			Name = "Awalmir",
-			Origin = "Kabul",
-			Genre = "Qais Ulfat",
-			BestSong = "Da Afghanistan da"
-		});
-
-		mock.Mock<IRepository>().Setup(x => x.GetBands(false)).Returns(expected);
-		var cls = mock.Create<BandController>();
-		var actual = cls.MethodToTest(false);
-		
-		Assert.NotNull(actual);
-		
-		for(int i = 0; i < actual.Count; i++)
-		{
-			Assert.Equal(expected[i].Name, actual[i].Name);
-			Assert.Equal(expected[i].Origin, actual[i].Origin);
-			Assert.Equal(expected[i].Genre, actual[i].Genre);
-			Assert.Equal(expected[i].BestSong, actual[i].BestSong);
-		}                
-	}
-}
-
-65-
 public class Panda
 {
 	public string Name;
@@ -1719,7 +1661,7 @@ public class Panda
 	}
 } 
 
-66-
+64-
 public string CreateHeader()
 {
 	var properties = _type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -1733,7 +1675,7 @@ public string CreateHeader()
 	return bob.ToString()[..^1];
 }
 
-67-
+65-
 public string CreateRow(T item)
 {
 	var properties = _type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -1749,6 +1691,124 @@ public string CreateRow(T item)
 
 private string CreateItem(object item) { return item.ToString(); }
 private string CreateItem(DateTime item) { return item.ToShortDateString(); }
+
+66-
+[Fact]
+public void LoadBands_ValidCall()
+{
+	using(var mock = AutoMock.GetLoose())
+	{
+		mock.Mock<IRepository>()
+			.Setup(r => r.GetBands("select * from Person"))
+			.Returns(new List<Band>
+			{
+				new Band { Name = "Farhad Darya", BestSong = "Kabul Jan" },
+				new Band { Name = "Ahmad Zaher", BestSong = "Laili Laili" }
+			});
+
+		var cls = mock.Create<BandController>();
+		var actual = cls.LoadBands();
+
+		Assert.NotNull(actual);
+
+		List<Band> expected = new List<Band>();
+		expected.Add(new Band
+		{
+			Name = "Farhad Darya",
+			BestSong = "Kabul Jan"
+		});
+		expected.Add(new Band
+		{
+			Name = "Ahmad Zaher",
+			BestSong = "Laili Laili"
+		});
+		Assert.Equal(expected.Count, actual.Count);
+
+		for(int i = 0; i < expected.Count; i++)
+		{
+			Assert.Equal(expected[i].Name, actual[i].Name);
+			Assert.Equal(expected[i].BestSong, actual[i].BestSong);
+		}
+	}
+}
+
+67-
+[Fact]
+public void SaveData_ValidCall()
+{
+	using (var mock = AutoMock.GetLoose())
+	{
+		Band band = new Band { Name = "Sarban", BestSong = "Ay Shakhe Gul" };
+		string sql = "insert into Person ...";
+		mock.Mock<IRepository>()
+			.Setup(r => r.SaveBand(band, sql));                   
+
+		var cls = mock.Create<BandController>();
+		cls.SaveData(band);
+
+		mock.Mock<IRepository>()
+			.Verify(x => x.SaveBand(band, sql), Times.Exactly(1));
+	}
+}
+
+68-
+static void Main(string[] args)
+{
+	int[,] matrix = new int[3, 3];
+	
+	for(int i = 0; i < matrix.GetLength(0); i++)
+	{
+		for(int j = 0; j < matrix.GetLength(1); j++)
+		{
+			matrix[i, j] = i * 3 + j;
+		}
+	}
+
+	for (int i = 0; i < matrix.GetLength(0); i++)
+	{
+		for (int j = 0; j < matrix.GetLength(1); j++)
+		{
+			Console.Write($"{matrix[i, j]}  ");
+		}
+		Console.WriteLine("\n");
+	}
+	
+	Console.Read();
+}
+
+69-
+static void Main(string[] args)
+{
+	int[][] matrix = new int[3][];
+
+	for (int i = 0; i < matrix.Length; i++)
+	{
+		if(i == 2)
+		{
+			matrix[i] = new int[6];
+		}
+		else
+		{
+			matrix[i] = new int[3];
+		}
+		
+		for (int j = 0; j < matrix[i].Length; j++)
+		{
+			matrix[i][j] = i * 3 + j;
+		}
+	}
+
+	for (int i = 0; i < matrix.Length; i++)
+	{                
+		for (int j = 0; j < matrix[i].Length; j++)
+		{
+			Console.Write($"{matrix[i][j]}  ");
+		}
+		Console.WriteLine("\n");
+	}
+	
+	Console.Read();
+}
 
 
 

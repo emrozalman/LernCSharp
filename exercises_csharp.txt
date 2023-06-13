@@ -1,20 +1,20 @@
-1- 12 Write a C# Sharp program to calculate what day of the week is 40 days from this moment.
+1- 13 Write a C# Sharp program to calculate what day of the week is 40 days from this moment.
 Expected Output :
 Today = 8/20/2016 4:18:17 PM                                            
 Thursday  
 
-2- 12 Write a C# Sharp program to create a new string taking the first character from a given string and the last character from another given string. If the length of any given string is 0, use '#' as its missing character.
+2- 13 Write a C# Sharp program to create a new string taking the first character from a given string and the last character from another given string. If the length of any given string is 0, use '#' as its missing character.
 Hello, Hi => Hi
 Python, PHP => PP
 JS , JS => JS
 Csharp, "" => C#
 
-3- 12 Schreibe ein Program das die geraden Zahlen des Arrays "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" mit Hilfe eines Linq-Query ausgibt.
+3- 13 Schreibe ein Program das die geraden Zahlen des Arrays "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" mit Hilfe eines Linq-Query ausgibt.
 
-4- 12 Write a program in C# Sharp to find the positive numbers from a list of numbers using a LINQ Query. The numbers within the range of 1 to 11 in the array "{ 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 }" are :
+4- 13 Write a program in C# Sharp to find the positive numbers from a list of numbers using a LINQ Query. The numbers within the range of 1 to 11 in the array "{ 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 }" are :
 1 3 6 9 10
 
-5- 12 Write a program in C# Sharp to find the number of an array and the square of each number which is more than 20. In array "{ 3, 9, 2, 8, 6, 5 }" (use Linq)
+5- 13 Write a program in C# Sharp to find the number of an array and the square of each number which is more than 20. In array "{ 3, 9, 2, 8, 6, 5 }" (use Linq)
 Expected Output :
 { Number = 9, SqrNo = 81 }
 { Number = 8, SqrNo = 64 }
@@ -455,20 +455,20 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-46- ****5 Write the Iterator "EvenSequence" to return the even numbers in the given range.
+46- ****5** Write the Iterator "EvenSequence" to return the even numbers in the given range.
 Test Data :
 foreach(int ev in EvenSequence(6, 12))
 {
 	Console.Write(ev + " ");
 }
 
-47- ****5 Write the low-lever code of the following enumeration.
+47- ****5** Write the low-lever code of the following enumeration.
 foreach (char c in "Mona")
 {
 	Console.WriteLine(c);
 }
 
-48- ****5 Write the Area method as extension method of the Circle class.
+48- ****5* Write the Area method as extension method of the Circle class.
 public double Area(double Radius)
 {
 	const double PI = 3.14159;
@@ -500,7 +500,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-49- ****5 How converts the compiler the following code with nullable value types?
+49- ****5* How converts the compiler the following code with nullable value types?
 static void Main(string[] args)
 {
 	int? x = 5;
@@ -512,7 +512,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-50- ****5 Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
+50- ****5* Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
 static IEnumerable<int> Numbers ()
 {
 	yield return 1;
@@ -662,59 +662,7 @@ static void ComplexCalculation2()
 
 62- ****5 Write a RangeAsync method with parameters start, end and delay and display the elements of the range with foreach.
 
-63- ****5 Test the method "MethodToTest()" by Mocking "repository.GetBands()".
-public class Band
-{
-	public string Name { get; set; }
-	public string Origin { get; set; }
-	public string Genre { get; set; }
-	public string BestSong { get; set; }
-}
-
-public interface IRepository
-{
-	List<Band> GetBands();
-}
-
-public class Repository : IRepository
-{
-	public List<Band> GetBands()
-	{
-		var listOfBands = new List<Band>();
-		listOfBands.Add(new Band
-		{
-			Name = "Farhad Darya",
-			Origin = "Kabul",
-			Genre = "Qais Ulfat",
-			BestSong = "Ba Lab Harf"
-		});            
-
-		return listOfBands;
-	}
-}
-
-public class BandController
-{
-	IRepository repository;
-
-	public BandController(IRepository repository)
-	{
-		this.repository = repository;
-	}
-
-	public List<Band> MethodToTest()
-	{
-		return repository.GetBands();		
-	}
-}
-
-64- **** Adapt the task "63" to test using of the correct parameter "upperName" and verify each element of each band. 
-public interface IRepository
-{	
-	List<Band> GetBands(bool upperName);
-}
-
-65- **** Write the class "Panda".
+63- ****5 Write the class "Panda".
 static void Main(string[] args)
 {
 	Panda p1 = new Panda("Pan Dee");
@@ -733,7 +681,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-66- Implement the CreateHeader() method in the class CSVGenerator(). 
+64- * Implement the CreateHeader() method in the class CSVGenerator(). 
 public class Book
 {
 	public string Author { get; set; }
@@ -804,4 +752,84 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-67- Implement the CreateRow() method in the class CSVGenerator() of the previous task. Convert the date format with "ToShortDateString()" dynamically.
+65- * Implement the CreateRow() method in the class CSVGenerator() of the previous task. Convert the date format with "ToShortDateString()" dynamically.
+
+66- * Test the method "LoadBands()" by Mocking "repository.GetBands(sql)". Verify each element of each band.
+public class Band
+{
+	public string Name { get; set; }
+	public string Origin { get; set; }
+	public string Genre { get; set; }
+	public string BestSong { get; set; }
+}
+
+public interface IRepository
+{
+	List<Band> GetBands(string sqlStatement);
+}
+
+public class Repository : IRepository
+{
+	public List<Band> GetBands(string sqlStatement)
+	{
+		var listOfBands = new List<Band>();
+		listOfBands.Add(new Band
+		{
+			Name = "Farhad Darya",
+			Origin = "Kabul",
+			Genre = "Qais Ulfat",
+			BestSong = "Ba Lab Harf"
+		}); 
+		listOfBands.Add(new Band
+		{
+			Name = "Awalmir",
+			Origin = "Kabul",
+			Genre = "Qais Ulfat",
+			BestSong = "Da Afghanistan da"
+		});
+
+		return listOfBands;
+	}
+}
+
+public class BandController
+{
+	IRepository repository;
+
+	public BandController(IRepository repository)
+	{
+		this.repository = repository;
+	}
+
+	public List<Band> LoadBands()
+	{
+		string sql = "select * from Person";
+		
+		return repository.GetBands(sql);
+	}
+}
+
+67- Test the method "SaveData()" by Mocking "repository.SaveBand(band, sql)". Use the classes of the exercise 66.
+public class BandController
+{
+	...
+	
+	public void SaveData(Band band)
+	{
+		string sql = "insert into Person ...";
+
+		repository.SaveBand(band, sql);            
+	}
+}
+
+68- Initialize the array "int[,] matrix = new int[3, 3]" using the for-loop and display it as following.
+Expected result:
+0 1 2
+3 4 5
+6 7 8
+
+69- Initialize the array "int[][] matrix = new int[3][]" using the for-loop and display it as following.
+Expected result:
+0 1 2
+3 4 5
+6 7 8 9 10 11
