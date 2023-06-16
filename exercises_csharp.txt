@@ -21,13 +21,13 @@ Expected Output :
 { Number = 6, SqrNo = 36 }
 { Number = 5, SqrNo = 25 }
 
-6- 12 Write a program in C# Sharp to display the number and frequency of number from giving array. Use the array "{ 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 }" (use Linq)
+6- 13 Write a program in C# Sharp to display the number and frequency of number from giving array. Use the array "{ 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 }" (use Linq)
 The number and the Frequency are :
 Number 5 appears 3 times
 Number 9 appears 2 times
 Number 1 appears 1 times 
 
-7- 12 Write a program in C# Sharp to display the characters and frequency of character from giving string. (use Linq)
+7- 13 Write a program in C# Sharp to display the characters and frequency of character from giving string. (use Linq)
 Test Data:
 Input the string: apple
 Expected Output:
@@ -37,7 +37,7 @@ Character p: 2 times
 Character l: 1 times
 Character e: 1 times
 
-8- 12 Write a program in C# Sharp to display the name of the days of a week from the array { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" } (use Linq)
+8- 13 Write a program in C# Sharp to display the name of the days of a week from the array { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" } (use Linq)
 Expected Output:
 Sunday
 Monday
@@ -47,7 +47,7 @@ Thursday
 Friday
 Saturday
 
-9- 12 Write a program in C# Sharp to display numbers, multiplication of number with frequency and frequency of a number of giving array.
+9- 13 Write a program in C# Sharp to display numbers, multiplication of number with frequency and frequency of a number of giving array.
 Test Data :
 The numbers in the array are :
 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2
@@ -59,7 +59,7 @@ Number Number*Frequency Frequency
 9 9 1
 2 4 2 
 
-10- 12 Write a program in C# Sharp to find the string which starts and ends with a specific character. (use Linq)
+10- 13 Write a program in C# Sharp to find the string which starts and ends with a specific character. (use Linq)
 Test Data :
 The cities are : "ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS"
 Input starting character for the string : A
@@ -67,7 +67,7 @@ Input ending character for the string : M
 Expected Output :
 The city starting with A and ending with M is : AMSTERDAM
 
-11- 12 Write a program in C# Sharp to create a list of numbers and display the numbers greater than 80 as output. (use List)
+11- 13 Write a program in C# Sharp to create a list of numbers and display the numbers greater than 80 as output. (use List)
 Test Data :
 The members of the list are :
 55, 200, 740, 76, 230, 482, 95
@@ -79,7 +79,7 @@ The numbers greater than 80 are :
 482
 95
 
-12- 12 Write a program in C# Sharp to display the top n-th records. (use List)
+12- 13 Write a program in C# Sharp to display the top n-th records. (use List)
 Test Data :
 The members of the list are : 5, 7, 13, 24, 6, 9, 8, 7 
 Expected Output :
@@ -88,7 +88,7 @@ The top 3 records from the list are :
 13
 9 
 
-13- 12 Write a program in C# Sharp to find the uppercase words in a string.
+13- 13 Write a program in C# Sharp to find the uppercase words in a string.
 Test Data :
 Input string : this IS a STRING
 Expected Output :
@@ -96,7 +96,7 @@ The UPPER CASE words are :
 IS
 STRING
 
-14- 12 Write a program in C# Sharp to convert a string array to a string.
+14- 13 Write a program in C# Sharp to convert a string array to a string.
 Test Data :
 Input array with 3 strings :
 Element[0] : cat
@@ -105,7 +105,7 @@ Element[2] : rat
 Expected Output:
 cat, dog, rat
 
-15- 12 Write a program in C# Sharp to find the n-th Maximum grade point achieved by the students from the list of students.
+15- 13 Write a program in C# Sharp to find the n-th Maximum grade point achieved by the students from the list of students.
 Test Data : 1 for first grade, 2 for second grade, 3 for third grade
 public class Students  
 {  
@@ -468,7 +468,7 @@ foreach (char c in "Mona")
 	Console.WriteLine(c);
 }
 
-48- ****5* Write the Area method as extension method of the Circle class.
+48- ****5** Write the Area method as extension method of the Circle class.
 public double Area(double Radius)
 {
 	const double PI = 3.14159;
@@ -500,7 +500,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-49- ****5* How converts the compiler the following code with nullable value types?
+49- ****5** How converts the compiler the following code with nullable value types?
 static void Main(string[] args)
 {
 	int? x = 5;
@@ -512,7 +512,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-50- ****5* Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
+50- ****5** Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
 static IEnumerable<int> Numbers ()
 {
 	yield return 1;
@@ -523,7 +523,7 @@ static IEnumerable<int> Numbers ()
 	yield return 6;            
 }
 
-51- ****5 Write two alternative copy constructor and test them.
+51- ****5* Write two alternative copy constructor and test them.
 class Person
 {
 	// Instance constructor.
@@ -543,7 +543,7 @@ class Person
 	}
 }
 
-52- ****5 Write a constructor for the Adult class to initialize the "last" and "first" fields in its base class and a constructor to initialize the field "minimumAge". Set breakpoints in both constructors to see the order of calls.
+52- ****5* Write a constructor for the Adult class to initialize the "last" and "first" fields in its base class and a constructor to initialize the field "minimumAge". Set breakpoints in both constructors to see the order of calls.
 public class Person
 {
 	private string last;
@@ -569,9 +569,9 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-53- ****5 Display the last five elements, the first five elements and the (third and fourth elements) from the array "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" using ranges.
+53- ****5* Display the last five elements, the first five elements and the (third and fourth elements) from the array "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" using ranges.
 
-54- ****5 Display the following elements of the array { 10, 9, 8, 7, 6 } unsing LINQ methods.
+54- ****5* Display the following elements of the array { 10, 9, 8, 7, 6 } unsing LINQ methods.
 Console.WriteLine( first element ); // 10
 Console.WriteLine( last element );  // 6
 Console.WriteLine( element at position 2 );    // 8
@@ -588,7 +588,7 @@ Console.WriteLine( does the array contains the element with value 7 ? ); // True
 Console.WriteLine( does the array conatins at least one even number ? );    // True
 Console.WriteLine( do all elements have even values ? );    // False
 
-55- ****5 Disply the names with minimal length in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
+55- ****5* Disply the names with minimal length in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
 Expected Output:
 Tom
 Jay
@@ -681,7 +681,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-64- * Implement the CreateHeader() method in the class CSVGenerator(). 
+64- ** Implement the CreateHeader() method in the class CSVGenerator(). 
 public class Book
 {
 	public string Author { get; set; }
@@ -752,9 +752,9 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-65- * Implement the CreateRow() method in the class CSVGenerator() of the previous task. Convert the date format with "ToShortDateString()" dynamically.
+65- ** Implement the CreateRow() method in the class CSVGenerator() of the previous task. Convert the date format with "ToShortDateString()" dynamically.
 
-66- * Test the method "LoadBands()" by Mocking "repository.GetBands(sql)". Verify each element of each band.
+66- ** Test the method "LoadBands()" by Mocking "repository.GetBands(sql)". Verify each element of each band.
 public class Band
 {
 	public string Name { get; set; }
@@ -809,7 +809,7 @@ public class BandController
 	}
 }
 
-67- Test the method "SaveData()" by Mocking "repository.SaveBand(band, sql)". Use the classes of the exercise 66.
+67- ** Test the method "SaveData()" by Mocking "repository.SaveBand(band, sql)". Use the classes of the exercise 66.
 public class BandController
 {
 	...
@@ -822,13 +822,13 @@ public class BandController
 	}
 }
 
-68- Initialize the array "int[,] matrix = new int[3, 3]" using the for-loop and display it as following.
+68- ** Initialize the array "int[,] matrix = new int[3, 3]" using the for-loop and display it as following.
 Expected result:
 0 1 2
 3 4 5
 6 7 8
 
-69- Initialize the array "int[][] matrix = new int[3][]" using the for-loop and display it as following.
+69- ** Initialize the array "int[][] matrix = new int[3][]" using the for-loop and display it as following.
 Expected result:
 0 1 2
 3 4 5
