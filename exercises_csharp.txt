@@ -133,7 +133,7 @@ Expected Output for grade 3:
 Id : 7, Name : David, achieved Grade Point : 750
 Id : 10, Name : Jenny, achieved Grade Point : 750 
 
-16- 12 Write a program in C# Sharp to count file extensions and group it using LINQ.
+16- 13 Write a program in C# Sharp to count file extensions and group it using LINQ.
 Test Data :
 The files are : "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt"
 Expected Output :
@@ -145,9 +145,9 @@ Here is the group of extension of the files :
 1 File(s) with frt Extension
 1 File(s) with xml Extension
 
-17- 12 Lösen Sie die obige Aufgabe mit Methoden-Syntax.
+17- 13 Lösen Sie die obige Aufgabe mit Methoden-Syntax.
 
-18- 12 Write a program in C# Sharp to remove items from a list of string using remove function by passing the object. Schreiben Sie den Inhalt der Liste jedesmal vor und nachdem Entfernen als Linq-Ausdruck und dieses in foreach ausgeben.
+18- 13 Write a program in C# Sharp to remove items from a list of string using remove function by passing the object. Schreiben Sie den Inhalt der Liste jedesmal vor und nachdem Entfernen als Linq-Ausdruck und dieses in foreach ausgeben.
 Test Data :
 Char: m
 Char: n
@@ -161,7 +161,7 @@ Char: n
 Char: p
 Char: q 
 
-19- 12 Write a program in C# Sharp to find the strings for a specific minimum length. (use Linq)
+19- 13 Write a program in C# Sharp to find the strings for a specific minimum length. (use Linq)
 Test Data :
 Element[0] : this
 Element[1] : is
@@ -171,7 +171,7 @@ Input minimum length 5
 Expected Output:
 Item: string
 
-20- 12 Write a program in C# Sharp to generate a cartesian product of two sets. 
+20- 13 Write a program in C# Sharp to generate a cartesian product of two sets. 
 From { 'X', 'Y', 'Z' } and { 1, 2, 3, 4 };
 Expected Output :
 The cartesian product are :
@@ -188,7 +188,7 @@ The cartesian product are :
 { letterList = Z, numberList = 3 }
 { letterList = Z, numberList = 4 }
 
-21- 12 Write a program in C# Sharp to generate a cartesian product of three sets.
+21- 13 Write a program in C# Sharp to generate a cartesian product of three sets.
 From { 'X', 'Y', 'Z' } , { 1, 2, 3, 4 } and { "Green", "Orange" }
 Expected Output :
 The cartesian product are :
@@ -201,7 +201,7 @@ The cartesian product are :
 { letter = Y, number = 1, colour = Green }
 { letter = Y, number = 1, colour = Orange }
 
-22- 12 Write a program in C# Sharp to generate an Inner Join (use where and not join) between two data sets.
+22- 13 Write a program in C# Sharp to generate an Inner Join (use where and not join) between two data sets.
 Item ID         Item Name       Purchase Quantity                                                             
 -------------------------------------------------------                                          
 1          Biscuit         458                                                                   
@@ -248,7 +248,7 @@ List<Purchase> purchlist = new List<Purchase>
    new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }
 };
 	
-23- 12 Lösen Sie die Aufgabe 22 mit "Linq inner join". Geben Sie die Werte diesmal so aus:
+23- 13 Lösen Sie die Aufgabe 22 mit "Linq inner join". Geben Sie die Werte diesmal so aus:
 ID: 1, Description: Biscuit  , Menge: 458 
 ID: 2, Description: Chocolate, Menge: 650 
 ID: 3, Description: Butter   , Menge: 800 
@@ -257,14 +257,14 @@ ID: 3, Description: Butter   , Menge: 900
 ID: 4, Description: Brade    , Menge: 700 
 ID: 4, Description: Brade    , Menge: 650 
 
-24- 12 Write a program in C# Sharp to generate a Left Join between two data sets. Use the data of "22".
+24- 13 Write a program in C# Sharp to generate a Left Join between two data sets. Use the data of "22".
 
-25- 12 Write a program in C# Sharp to generate a Right Outer Join between two data sets. Use the data of "22".
+25- 13 Write a program in C# Sharp to generate a Right Outer Join between two data sets. Use the data of "22".
 
-26- 12 Write a program in C# Sharp to display the list of items in the array according to the length of the string then by name in ascending order. (Use Linq Method Syntax)
+26- 13 Write a program in C# Sharp to display the list of items in the array according to the length of the string then by name in ascending order. (Use Linq Method Syntax)
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI", "AMSTERDAM", "ROME"}
 
-27- 12 Write a program in C# Sharp to split a collection of strings into some groups of the same length.
+27- 13 Write a program in C# to split a collection of strings into some groups of the same length.
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI",  "AMSTERDAM", "ROME"}
 Expected Output :
 CALIFORNIA , 
@@ -274,14 +274,14 @@ LONDON , ZURICH ,
 NAIROBI , 
 ROME , 
 
-28- 12 Write a program in C# Sharp to split a collection of strings into groups of three elements.
+28- 13 Write a program in C# Sharp to split a collection of strings into groups of three elements.
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI",  "AMSTERDAM", "ROME"}
 Expected Output :
 CALIFORNIA , PARIS , NEW DELHI , 
 LONDON , ABU DHABI , ZURICH ,
 NAIROBI , AMSTERDAM , ROME ,
 
-29 - 12 Write a program in C# Sharp to arrange the distinct elements in the list in ascending order. Data:
+29 - 13 Write a program in C# Sharp to arrange the distinct elements in the list in ascending order. Data:
 class Item_Mast
 {
   public int 	ItemId { get; set; }
@@ -306,26 +306,26 @@ Brade
 Butter
 Honey
 
-30- 12 Write a C# Sharp program to check whether a given string is a valid Hex code or not. Return true if the said string is a valid code otherwise false. (use Regex)
+30- 13 Write a C# Sharp program to check whether a given string is a valid Hex code or not. Return true if the said string is a valid code otherwise false. (use Regex)
 Sample Data:
 ("#CD5C5C") -> True
 ("#f08080") -> True
 ("#E9967A") -> True
 ("#EFFA07A") -> False
 
-31- 12 Write a C# Sharp program to calculate the average word length in a given string. Round the average length up to two decimal places.
+31- 13 Write a C# Sharp program to calculate the average word length in a given string. Round the average length up to two decimal places.
 Sample Data:
 ("CPP Exercises." -> 6
 ("C# syntax is highly expressive, yet it is also simple and easy to learn.") -> 4
 ("C# is an elegant and type-safe object-oriented language") -> 5.62
 
-32- 12 Write a C# Sharp program to check whether a given string of characters can be transformed into a palindrome. Return true otherwise false. A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam or racecar.
+32- 13 Write a C# Sharp program to check whether a given string of characters can be transformed into a palindrome. Return true otherwise false. A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam or racecar.
 Sample Data:
 ("amamd") -> True
 ("pamamd") -> False
 ("ferre") -> True
 
-33- 12 Write a C# Sharp program to validate a password of length 7 to 16 characters with the following guidelines:
+33- 13 Write a C# Sharp program to validate a password of length 7 to 16 characters with the following guidelines:
 • Length between 7 and 16 characters.
 • At least one lowercase letter (a-z).
 • At least one uppercase letter (A-Z).
@@ -338,32 +338,33 @@ Sample Data:
 ("sdsd723#$Amid") -> True
 ("sdsd723#$Amidkiouy") -> False
 
-34- 12 Write a C# Sharp program to check whether two given strings contain the same character pattern.
+34- 13 Write a C# Sharp program to check whether two given strings contain the same character pattern.
 Sample Data:
 ("AACC", "PPRR") -> True
 ("FFGG", "ADAD") -> False
 
-35- 12 Write a C# Sharp program to check for repeated occurrences of words in a given string.
+35- 13 Write a C# Sharp program to check for repeated occurrences of words in a given string.
 Sample Data:
 "C# C# syntax is highly expressive, yet it is is also simple and easy to to learn learn."
 Expected output:
+'C#' repeated at positions 0 and 3
 'is' repeated at positions 42 and 45
 'to' repeated at positions 69 and 72
 'learn' repeated at positions 75 and 81
 
-36- 12 Write a C# Sharp program to remove the special characters from a given text. Return the new string which allowed alphanumeric characters, spaces, underscores _ and dashes -
+36- 13 Write a C# Sharp program to remove the special characters from a given text. Return the new string which allowed alphanumeric characters, spaces, underscores _ and dashes -
 Sample Data:
 ("AA@%^&CC") -> "AACC"
 ("Python") -> "Python"
 ("w3resource.com") -> "w3resourcecom"
 
-37- 12 Write a C# Sharp program to find the word "C#" in a given string. If the word "C#" found return "C# document found." otherwise return “Sorry no C# document!". Mit regulären Ausdrücken lösen!
+37- 13 Write a C# Sharp program to find the word "C#" in a given string. If the word "C#" found return "C# document found." otherwise return “Sorry no C# document!". Mit regulären Ausdrücken lösen!
 Sample Data:
 ("C# Exercises") -> "C# document found."
 ("Python Exercises") -> "Sorry no C# document!"
 ("Tutorial on c#") -> "C# document found."
 
-38- 12 Write a program in C# Sharp to check whether a character is an alphabet and not and if so, go to check for the case.
+38- 13 Write a program in C# Sharp to check whether a character is an alphabet and not and if so, go to check for the case.
 Test Data :
 Input a character: Z
 Expected Output :
@@ -455,20 +456,20 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-46- ****5** Write the Iterator "EvenSequence" to return the even numbers in the given range.
+46- 10 Write the Iterator "EvenSequence" to return the even numbers in the given range.
 Test Data :
 foreach(int ev in EvenSequence(6, 12))
 {
 	Console.Write(ev + " ");
 }
 
-47- ****5** Write the low-lever code of the following enumeration.
+47- 10 Write the low-lever code of the following enumeration.
 foreach (char c in "Mona")
 {
 	Console.WriteLine(c);
 }
 
-48- ****5** Write the Area method as extension method of the Circle class.
+48- 10 Write the Area method as extension method of the Circle class.
 public double Area(double Radius)
 {
 	const double PI = 3.14159;
@@ -500,7 +501,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-49- ****5** How converts the compiler the following code with nullable value types?
+49- 10 How converts the compiler the following code with nullable value types?
 static void Main(string[] args)
 {
 	int? x = 5;
@@ -512,7 +513,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-50- ****5** Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
+50- 10 Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
 static IEnumerable<int> Numbers ()
 {
 	yield return 1;
@@ -523,7 +524,7 @@ static IEnumerable<int> Numbers ()
 	yield return 6;            
 }
 
-51- ****5* Write two alternative copy constructor and test them.
+51- 10 Write two alternative copy constructor and test them.
 class Person
 {
 	// Instance constructor.
@@ -543,16 +544,16 @@ class Person
 	}
 }
 
-52- ****5* Write a constructor for the Adult class to initialize the "last" and "first" fields in its base class and a constructor to initialize the field "minimumAge". Set breakpoints in both constructors to see the order of calls.
+52- 10 Write a constructor for the Adult class to initialize the "last" and "first" fields in its base class and a constructor to initialize the field "minimumAge". Set breakpoints in both constructors to see the order of calls.
 public class Person
-{
-	private string last;
+{	
 	private string first;
+	private string last;
 
-	public Person(string lastName, string firstName)
-	{
-		last = lastName;
+	public Person(string firstName, string lastName)
+	{		
 		first = firstName;
+		last = lastName;
 	}            
 }
 
@@ -569,9 +570,9 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-53- ****5* Display the last five elements, the first five elements and the (third and fourth elements) from the array "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" using ranges.
+53- 10 Display the last five elements, the first five elements and the (third and fourth elements) from the array "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" using ranges.
 
-54- ****5* Display the following elements of the array { 10, 9, 8, 7, 6 } unsing LINQ methods.
+54- 10 Display the following elements of the array { 10, 9, 8, 7, 6 } unsing LINQ methods.
 Console.WriteLine( first element ); // 10
 Console.WriteLine( last element );  // 6
 Console.WriteLine( element at position 2 );    // 8
@@ -588,18 +589,18 @@ Console.WriteLine( does the array contains the element with value 7 ? ); // True
 Console.WriteLine( does the array conatins at least one even number ? );    // True
 Console.WriteLine( do all elements have even values ? );    // False
 
-55- ****5* Disply the names with minimal length in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
+55- 10 Disply the names with minimal length in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
 Expected Output:
 Tom
 Jay
 
-56- ****5 Disply the names with length (without vowels) greater as 2 in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
+56- ****5**** Disply the names with length (without vowels) greater as 2 in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
 Expected Output:
 Dick - Dck
 Harry - Hrry
 Mary - Mry
 
-57- ****5 Write the following code as asynchronic methods. 
+57- ****5**** Write the following code as asynchronic methods. 
 static void Go()
 {
 	Console.WriteLine("Start");
@@ -620,11 +621,11 @@ static int GetAnswerToLife()
 	return answer;
 }
 
-58- ****5 Call the asynchronic function AsyncGo() of the previous task and display the result "My code after completion of AsyncGo()" using the Awaiter of the Task class.
+58- ****5**** Call the asynchronic function AsyncGo() of the previous task and display the result "My code after completion of AsyncGo()" using the Awaiter of the Task class.
 
-59- ****5 Call the AsyncGo() function ten times in a for-loop and display the index of the for-loop after each completion of AsyncGo().
+59- ****5**** Call the AsyncGo() function ten times in a for-loop and display the index of the for-loop after each completion of AsyncGo().
 
-60- ****5 Call the following asynchronic function and display the result "Result after calculation = xx" using the Awaiter of the Task class.
+60- ****5**** Call the following asynchronic function and display the result "Result after calculation = xx" using the Awaiter of the Task class.
 
 static Task<int> ComplexCalculationAsyn() => Task.Run(() => ComplexCalculation());
 
@@ -639,7 +640,7 @@ static int ComplexCalculation()
 	return (int)x;
 }
 
-61- ****5 Display "All tasks finished" when all tasks are finished and "Any task finished" when any task is finished.
+61- ****5* Display "All tasks finished" when all tasks are finished and "Any task finished" when any task is finished.
 static Task ComplexCalculationAsyn() => Task.Run(() => ComplexCalculation());
 static Task ComplexCalculationAsyn2() => Task.Run(() => ComplexCalculation2());
 static void ComplexCalculation()
@@ -660,9 +661,9 @@ static void ComplexCalculation2()
 	}            
 }
 
-62- ****5 Write a RangeAsync method with parameters start, end and delay and display the elements of the range with foreach.
+62- ****5* Write a RangeAsync method with parameters start, end and delay and display the elements of the range with foreach.
 
-63- ****5 Write the class "Panda".
+63- ****5* Write the class "Panda".
 static void Main(string[] args)
 {
 	Panda p1 = new Panda("Pan Dee");
@@ -681,7 +682,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-64- ** Implement the CreateHeader() method in the class CSVGenerator(). 
+64- ****5 Implement the CreateHeader() method in the class CSVGenerator(). 
 public class Book
 {
 	public string Author { get; set; }
@@ -752,9 +753,9 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-65- ** Implement the CreateRow() method in the class CSVGenerator() of the previous task. Convert the date format with "ToShortDateString()" dynamically.
+65- ****5 Implement the CreateRow() method in the class CSVGenerator() of the previous task. Convert the date format with "ToShortDateString()" dynamically.
 
-66- ** Test the method "LoadBands()" by Mocking "repository.GetBands(sql)". Verify each element of each band.
+66- ****5 Test the method "LoadBands()" by Mocking "repository.GetBands(sql)". Verify each element of each band.
 public class Band
 {
 	public string Name { get; set; }
@@ -809,7 +810,7 @@ public class BandController
 	}
 }
 
-67- ** Test the method "SaveData()" by Mocking "repository.SaveBand(band, sql)". Use the classes of the exercise 66.
+67- ****5 Test the method "SaveData()" by Mocking "repository.SaveBand(band, sql)". Use the classes of the exercise 66.
 public class BandController
 {
 	...
@@ -822,14 +823,29 @@ public class BandController
 	}
 }
 
-68- ** Initialize the array "int[,] matrix = new int[3, 3]" using the for-loop and display it as following.
+68- ****5 Initialize the array "int[,] matrix = new int[3, 3]" using the for-loop and display it as following.
 Expected result:
 0 1 2
 3 4 5
 6 7 8
 
-69- ** Initialize the array "int[][] matrix = new int[3][]" using the for-loop and display it as following.
+69- ****5 Initialize the array "int[][] matrix = new int[3][]" using the for-loop and display it as following.
 Expected result:
 0 1 2
 3 4 5
 6 7 8 9 10 11
+
+70- Write the two implementation of "AppendText()" to see how a reference is copied and the original object is not destroyed by assigning to "null".
+
+static void Main(string[] args)
+{
+	StringBuilder sb = new StringBuilder();
+
+	AppendText(sb);
+	Console.WriteLine(sb.ToString());
+
+	AppendText(ref sb);
+	Console.WriteLine(sb.ToString());
+
+	Console.Read();
+}

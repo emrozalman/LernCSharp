@@ -1085,7 +1085,7 @@ namespace exercises
     {       
       static void Main(string[] args)
       {
-      	Regex rx = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b",
+      	Regex rx = new Regex(@"\b(?<word>[a-zA-Z#]+)\s+(\k<word>)\b",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
           
         MatchCollection matches = rx.Matches("C# C# syntax is highly expressive, yet it is is also simple and easy to to learn learn.");
@@ -1459,7 +1459,7 @@ public class Adult : Person
 {
 	private static int minimumAge;
 
-	public Adult(string lastName, string firstName) : base(lastName, firstName)
+	public Adult(string firstName, string lastName) : base(firstName, lastName)
 	{ }
 
 	static Adult()
@@ -1707,9 +1707,7 @@ public void LoadBands_ValidCall()
 			});
 
 		var cls = mock.Create<BandController>();
-		var actual = cls.LoadBands();
-
-		Assert.NotNull(actual);
+		var actual = cls.LoadBands();		
 
 		List<Band> expected = new List<Band>();
 		expected.Add(new Band
@@ -1722,6 +1720,8 @@ public void LoadBands_ValidCall()
 			Name = "Ahmad Zaher",
 			BestSong = "Laili Laili"
 		});
+		
+		Assert.NotNull(actual);
 		Assert.Equal(expected.Count, actual.Count);
 
 		for(int i = 0; i < expected.Count; i++)
@@ -1808,6 +1808,19 @@ static void Main(string[] args)
 	}
 	
 	Console.Read();
+}
+
+70-
+static void AppendText(StringBuilder sb) 
+{
+	sb.Append("Test");
+	sb = null;
+}
+
+static void AppendText(ref StringBuilder sb)
+{
+	sb.Append("Test");
+	sb = null;
 }
 
 
