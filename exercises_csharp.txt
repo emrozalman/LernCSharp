@@ -370,13 +370,13 @@ Input a character: Z
 Expected Output :
 "uppercase" or "lowercase" or "not an alphabetic character"
 
-39- 12 Write a program which asks the user for an integer number and answers if it is prime number or not.
+39- 13 Write a program which asks the user for an integer number and answers if it is prime number or not.
 Test Data :
 Enter a number: 7
 Expected Output:
 "prime number" or "no prime number"
 
-40- 12 Write a C# Sharp program to calculate the full product of two 32-bit numbers.
+40- 13 Write a C# Sharp program to calculate the full product of two 32-bit numbers.
 Expected Output:
 2147483647 * 2147483647 = 4611686014132420609
 
@@ -456,20 +456,20 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-46- 10 Write the Iterator "EvenSequence" to return the even numbers in the given range.
+46- 12 Write the Iterator "EvenSequence" to return the even numbers in the given range.
 Test Data :
 foreach(int ev in EvenSequence(6, 12))
 {
 	Console.Write(ev + " ");
 }
 
-47- 10 Write the low-lever code of the following enumeration.
+47- 12 Write the low-lever code of the following enumeration.
 foreach (char c in "Mona")
 {
 	Console.WriteLine(c);
 }
 
-48- 10 Write the Area method as extension method of the Circle class.
+48- 12 Write the Area method as extension method of the Circle class.
 public double Area(double Radius)
 {
 	const double PI = 3.14159;
@@ -501,7 +501,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-49- 10 How converts the compiler the following code with nullable value types?
+49- 12 How converts the compiler the following code with nullable value types?
 static void Main(string[] args)
 {
 	int? x = 5;
@@ -513,7 +513,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-50- 10 Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
+50- 12 Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
 static IEnumerable<int> Numbers ()
 {
 	yield return 1;
@@ -524,7 +524,7 @@ static IEnumerable<int> Numbers ()
 	yield return 6;            
 }
 
-51- 10 Write two alternative copy constructor and test them.
+51- 12 Write two alternative copy constructor and test them.
 class Person
 {
 	// Instance constructor.
@@ -544,7 +544,7 @@ class Person
 	}
 }
 
-52- 10 Write a constructor for the Adult class to initialize the "last" and "first" fields in its base class and a constructor to initialize the field "minimumAge". Set breakpoints in both constructors to see the order of calls.
+52- 12 Write a constructor for the Adult class to initialize the "last" and "first" fields in its base class and a constructor to initialize the field "minimumAge". Set breakpoints in both constructors to see the order of calls.
 public class Person
 {	
 	private string first;
@@ -570,9 +570,9 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-53- 10 Display the last five elements, the first five elements and the (third and fourth elements) from the array "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" using ranges.
+53- 12 Display the last five elements, the first five elements and the (third and fourth elements) from the array "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" using ranges.
 
-54- 10 Display the following elements of the array { 10, 9, 8, 7, 6 } unsing LINQ methods.
+54- 12 Display the following elements of the array { 10, 9, 8, 7, 6 } unsing LINQ methods.
 Console.WriteLine( first element ); // 10
 Console.WriteLine( last element );  // 6
 Console.WriteLine( element at position 2 );    // 8
@@ -589,18 +589,18 @@ Console.WriteLine( does the array contains the element with value 7 ? ); // True
 Console.WriteLine( does the array conatins at least one even number ? );    // True
 Console.WriteLine( do all elements have even values ? );    // False
 
-55- 10 Disply the names with minimal length in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
+55- 12 Disply the names with minimal length in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
 Expected Output:
 Tom
 Jay
 
-56- ****5**** Disply the names with length (without vowels) greater as 2 in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
+56- 10 Disply the names with length (without vowels) greater as 2 in the array { "Tom", "Dick", "Harry", "Mary", "Jay" } using LINQ.
 Expected Output:
 Dick - Dck
 Harry - Hrry
 Mary - Mry
 
-57- ****5**** Write the following code as asynchronic methods. 
+57- 10 Write the following code as asynchronic methods. 
 static void Go()
 {
 	Console.WriteLine("Start");
@@ -621,11 +621,11 @@ static int GetAnswerToLife()
 	return answer;
 }
 
-58- ****5**** Call the asynchronic function AsyncGo() of the previous task and display the result "My code after completion of AsyncGo()" using the Awaiter of the Task class.
+58- 10 Call the asynchronic function AsyncGo() of the previous task and display the result "My code after completion of AsyncGo()" using the Awaiter of the Task class.
 
-59- ****5**** Call the AsyncGo() function ten times in a for-loop and display the index of the for-loop after each completion of AsyncGo().
+59- 10 Call the AsyncGo() function ten times in a for-loop and display the index of the for-loop after each completion of AsyncGo().
 
-60- ****5**** Call the following asynchronic function and display the result "Result after calculation = xx" using the Awaiter of the Task class.
+60- 10 Call the following asynchronic function and display the result "Result after calculation = xx" using the Awaiter of the Task class.
 
 static Task<int> ComplexCalculationAsyn() => Task.Run(() => ComplexCalculation());
 
@@ -640,7 +640,7 @@ static int ComplexCalculation()
 	return (int)x;
 }
 
-61- ****5* Display "All tasks finished" when all tasks are finished and "Any task finished" when any task is finished.
+61- ****5**** Display "All tasks finished" when all tasks are finished and "Any task finished" when any task is finished.
 static Task ComplexCalculationAsyn() => Task.Run(() => ComplexCalculation());
 static Task ComplexCalculationAsyn2() => Task.Run(() => ComplexCalculation2());
 static void ComplexCalculation()
@@ -661,9 +661,9 @@ static void ComplexCalculation2()
 	}            
 }
 
-62- ****5* Write a RangeAsync method with parameters start, end and delay and display the elements of the range with foreach.
+62- ****5**** Write a RangeAsync method with parameters start, end and delay and display the elements of the range with foreach.
 
-63- ****5* Write the class "Panda".
+63- ****5**** Write the class "Panda".
 static void Main(string[] args)
 {
 	Panda p1 = new Panda("Pan Dee");
@@ -682,7 +682,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-64- ****5 Implement the CreateHeader() method in the class CSVGenerator(). 
+64- ****5**** Implement the CreateHeader() method in the class CSVGenerator(). 
 public class Book
 {
 	public string Author { get; set; }
@@ -753,9 +753,9 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-65- ****5 Implement the CreateRow() method in the class CSVGenerator() of the previous task. Convert the date format with "ToShortDateString()" dynamically.
+65- ****5**** Implement the CreateRow() method in the class CSVGenerator() of the previous task. Convert the date format with "ToShortDateString()" dynamically.
 
-66- ****5 Test the method "LoadBands()" by Mocking "repository.GetBands(sql)". Verify each element of each band.
+66- ****5*** Test the method "LoadBands()" by Mocking "repository.GetBands(sql)". Verify each element of each band.
 public class Band
 {
 	public string Name { get; set; }
@@ -810,7 +810,7 @@ public class BandController
 	}
 }
 
-67- ****5 Test the method "SaveData()" by Mocking "repository.SaveBand(band, sql)". Use the classes of the exercise 66.
+67- ****5*** Test the method "SaveData()" by Mocking "repository.SaveBand(band, sql)". Use the classes of the exercise 66.
 public class BandController
 {
 	...
@@ -823,19 +823,19 @@ public class BandController
 	}
 }
 
-68- ****5 Initialize the array "int[,] matrix = new int[3, 3]" using the for-loop and display it as following.
+68- ****5*** Initialize the array "int[,] matrix = new int[3, 3]" using the for-loop and display it as following.
 Expected result:
 0 1 2
 3 4 5
 6 7 8
 
-69- ****5 Initialize the array "int[][] matrix = new int[3][]" using the for-loop and display it as following.
+69- ****5*** Initialize the array "int[][] matrix = new int[3][]" using the for-loop and display it as following.
 Expected result:
 0 1 2
 3 4 5
 6 7 8 9 10 11
 
-70- Write the two implementation of "AppendText()" to see how a reference is copied and the original object is not destroyed by assigning to "null".
+70- ****5*** Write the two implementation of "AppendText()" to see how a reference is copied and the original object is not destroyed by assigning to "null".
 
 static void Main(string[] args)
 {
