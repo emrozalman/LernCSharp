@@ -1,33 +1,33 @@
-1- 13 Write a C# Sharp program to calculate what day of the week is 40 days from this moment.
+1- 14 Write a C# Sharp program to calculate what day of the week is 40 days from this moment.
 Expected Output :
 Today = 8/20/2016 4:18:17 PM                                            
 Thursday  
 
-2- 13 Write a C# Sharp program to create a new string taking the first character from a given string and the last character from another given string. If the length of any given string is 0, use '#' as its missing character.
+2- 14 Write a C# Sharp program to create a new string taking the first character from a given string and the last character from another given string. If the length of any given string is 0, use '#' as its missing character.
 Hello, Hi => Hi
 Python, PHP => PP
 JS , JS => JS
 Csharp, "" => C#
 
-3- 13 Schreibe ein Program das die geraden Zahlen des Arrays "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" mit Hilfe eines Linq-Query ausgibt.
+3- 14 Schreibe ein Program das die geraden Zahlen des Arrays "{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" mit Hilfe eines Linq-Query ausgibt.
 
-4- 13 Write a program in C# Sharp to find the positive numbers from a list of numbers using a LINQ Query. The numbers within the range of 1 to 11 in the array "{ 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 }" are :
+4- 14 Write a program in C# Sharp to find the positive numbers from a list of numbers using a LINQ Query. The numbers within the range of 1 to 11 in the array "{ 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 }" are :
 1 3 6 9 10
 
-5- 13 Write a program in C# Sharp to find the number of an array and the square of each number which is more than 20. In array "{ 3, 9, 2, 8, 6, 5 }" (use Linq)
+5- 14 Write a program in C# Sharp to find the number of an array and the square of each number which is more than 20. In array "{ 3, 9, 2, 8, 6, 5 }" (use Linq)
 Expected Output :
 { Number = 9, SqrNo = 81 }
 { Number = 8, SqrNo = 64 }
 { Number = 6, SqrNo = 36 }
 { Number = 5, SqrNo = 25 }
 
-6- 13 Write a program in C# Sharp to display the number and frequency of number from giving array. Use the array "{ 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 }" (use Linq)
+6- 14 Write a program in C# Sharp to display the number and frequency of number from giving array. Use the array "{ 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 }" (use Linq)
 The number and the Frequency are :
 Number 5 appears 3 times
 Number 9 appears 2 times
 Number 1 appears 1 times 
 
-7- 13 Write a program in C# Sharp to display the characters and frequency of character from giving string. (use Linq)
+7- 14 Write a program in C# Sharp to display the characters and frequency of character from giving string. (use Linq)
 Test Data:
 Input the string: apple
 Expected Output:
@@ -37,7 +37,7 @@ Character p: 2 times
 Character l: 1 times
 Character e: 1 times
 
-8- 13 Write a program in C# Sharp to display the name of the days of a week from the array { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" } (use Linq)
+8- 14 Write a program in C# Sharp to display the name of the days of a week from the array { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" } (use Linq)
 Expected Output:
 Sunday
 Monday
@@ -47,7 +47,7 @@ Thursday
 Friday
 Saturday
 
-9- 13 Write a program in C# Sharp to display numbers, multiplication of number with frequency and frequency of a number of giving array.
+9- 14 Write a program in C# Sharp to display numbers, multiplication of number with frequency and frequency of a number of giving array.
 Test Data :
 The numbers in the array are :
 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2
@@ -59,7 +59,7 @@ Number Number*Frequency Frequency
 9 9 1
 2 4 2 
 
-10- 13 Write a program in C# Sharp to find the string which starts and ends with a specific character. (use Linq)
+10- 14 Write a program in C# Sharp to find the string which starts and ends with a specific character. (use Linq)
 Test Data :
 The cities are : "ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS"
 Input starting character for the string : A
@@ -849,3 +849,12 @@ static void Main(string[] args)
 
 	Console.Read();
 }
+
+71- [MyFirstEfCoreApp] Write the SQL command produced to read Books and Author by the following code.
+foreach (var book in db.Books.AsNoTracking().Include(book => book.Author))
+{
+	... book.Title ...
+	... book.Author.Name ...	
+}
+
+72- [MyFirstEfCoreApp] Change the WebUrl of the book "Quantum Networking" by reading the new WebUrl in the Console and setting the WebUrl in the database table in a new static function called "ChangeWebUrl".

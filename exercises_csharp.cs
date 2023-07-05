@@ -53,52 +53,37 @@ namespace exercises
    }
 }
 
-3-
-using System;
-using System.Linq;
+3-       
+static void Main()
+{
+	int[] n1 = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };        
+	
+	var nQuery =
+		from VrNum in n1
+		where (VrNum % 2) == 0
+		select VrNum;
 
-class LinqExercise1
-{        
-    static void Main()
-    {
-        int[] n1 = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };        
-        
-        var nQuery =
-            from VrNum in n1
-            where (VrNum % 2) == 0
-            select VrNum;
-
-        foreach (int VrNum in nQuery)
-        {
-            Console.Write("{0} ", VrNum);
-        }        
-    }
+	foreach (int VrNum in nQuery)
+	{
+		Console.Write("{0} ", VrNum);
+	}        
 }
 
 4-
-using System;
-using System.Linq;
-
-namespace exercises
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-        	int[] n1 = { 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 };         
-        
-        	var nQuery =
-            	from VrNum in n1
-            	where VrNum > 0
-                where VrNum < 12
-            	select VrNum;
+	int[] n1 = { 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 };         
 
-            foreach (int num in nQuery)
-            {
-                Console.Write("{0} ", num);
-            }             
-        }
-   }
+	var nQuery =
+		from VrNum in n1
+		where VrNum > 0
+		where VrNum < 12
+		select VrNum;
+
+	foreach (int num in nQuery)
+	{
+		Console.Write("{0} ", num);
+	}             
 }
 
 5-
@@ -127,76 +112,49 @@ namespace exercises
 }
 
 6-
-using System;
-using System.Linq;
-
-namespace exercises
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-			int[] arr1 = new int[] { 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 };
-                	     
-            var n = from Num in arr1
-                    group Num by Num into y
-                    select y;
-             
-            Console.WriteLine("The number and the Frequency are :");
-            foreach (var arrNo in n)  
-            {  
-              Console.WriteLine("Number " + arrNo.Key + " appears " + arrNo.Count() + " times");
-            } 
-        }
-   }
+	int[] arr1 = new int[] { 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 };
+				 
+	var n = from Num in arr1
+			group Num by Num into y
+			select y;
+	 
+	Console.WriteLine("The number and the Frequency are :");
+	foreach (var arrNo in n)  
+	{  
+	  Console.WriteLine("Number " + arrNo.Key + " appears " + arrNo.Count() + " times");
+	} 
 }
 
 7-
-using System;
-using System.Linq;
-
-namespace exercises
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-			string str = "apple";
-                	     
-            var chars = from c in str
-                    group c by c into y
-                    select y;
-             
-            Console.WriteLine("The frequency of the characters are :");
-            foreach (var c in chars)  
-            {  
-              Console.WriteLine("Character " + c.Key + ": " + c.Count() + " times");  
-            } 
-        }
-   }
+	string str = "apple";
+				 
+	var chars = from c in str
+			group c by c into y
+			select y;
+	 
+	Console.WriteLine("The frequency of the characters are :");
+	foreach (var c in chars)  
+	{  
+	  Console.WriteLine("Character " + c.Key + ": " + c.Count() + " times");  
+	} 
 }
 
 8-
-using System;
-using System.Linq;
-
-namespace exercises
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-			string[] weekDays = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-            
-            var days = from day in weekDays
-                       select day;
-             
-            foreach (var day in days)  
-            {  
-              Console.WriteLine(day);  
-            } 
-        }
-   }
+	string[] weekDays = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+	
+	var days = from day in weekDays
+			   select day;
+	 
+	foreach (var day in days)  
+	{  
+	  Console.WriteLine(day);  
+	} 
 }
 
 9-
@@ -223,35 +181,26 @@ namespace exercises
    }
 }
 
-10-
-using System;
-using System.Linq;
-
-namespace exercises
+10-     
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-			string[] cities = { "ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS" };
+	string[] cities = { "ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS" };
 
-            Console.WriteLine("Input starting character for the string :") ;
-            string startChar = Console.ReadLine();
+	Console.WriteLine("Input starting character for the string :") ;
+	string startChar = Console.ReadLine();
 
-            Console.WriteLine("Input ending character for the string :");
-            string endChar = Console.ReadLine();
+	Console.WriteLine("Input ending character for the string :");
+	string endChar = Console.ReadLine();
 
-            var citiesq = from city in cities
-                          where city.StartsWith(startChar)
-                          where city.EndsWith(endChar)
-                          select city;
+	var citiesq = from city in cities
+				  where city.StartsWith(startChar)
+				  where city.EndsWith(endChar)
+				  select city;
 
-            foreach ( var c in citiesq )
-            {
-                Console.WriteLine("The city starting with {0} and ending with {1} is {2}", startChar, endChar, c);
-            }
-        }
-   }
+	foreach ( var c in citiesq )
+	{
+		Console.WriteLine("The city starting with {0} and ending with {1} is {2}", startChar, endChar, c);
+	}
 }
 
 11-
@@ -1821,6 +1770,36 @@ static void AppendText(ref StringBuilder sb)
 {
 	sb.Append("Test");
 	sb = null;
+}
+
+71-
+SELECT [b].[BookId],
+[b].[AuthorId],
+[b].[PublishedOn],
+[b].[Title],
+[a].[AuthorId],
+[a].[Name],
+[a].[WebUrl]
+FROM [Books] AS [b]
+INNER JOIN [Author] AS [a] ON
+[b].[AuthorId] = [a].[AuthorId]
+
+72-
+public static void ChangeWebUrl()
+{
+	Console.Write("New Quantum Networking WebUrl > ");
+	var newWebUrl = Console.ReadLine();
+
+	using (var db = new AppDbContext())
+	{
+		var singleBook = db.Books
+			.Include(book => book.Author)
+			.Single(book => book.Title == "Quantum Networking");
+
+		singleBook.Author.WebUrl = newWebUrl;
+		db.SaveChanges();
+		Console.WriteLine("... SaveChanges called.");
+	}	
 }
 
 
