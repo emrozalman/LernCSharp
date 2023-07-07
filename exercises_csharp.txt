@@ -67,7 +67,7 @@ Input ending character for the string : M
 Expected Output :
 The city starting with A and ending with M is : AMSTERDAM
 
-11- 13 Write a program in C# Sharp to create a list of numbers and display the numbers greater than 80 as output. (use List)
+11- 14 Write a program in C# Sharp to create a list of numbers and display the numbers greater than 80 as output. (use List)
 Test Data :
 The members of the list are :
 55, 200, 740, 76, 230, 482, 95
@@ -79,7 +79,7 @@ The numbers greater than 80 are :
 482
 95
 
-12- 13 Write a program in C# Sharp to display the top n-th records. (use List)
+12- 14 Write a program in C# Sharp to display the top n-th records. (use List)
 Test Data :
 The members of the list are : 5, 7, 13, 24, 6, 9, 8, 7 
 Expected Output :
@@ -88,7 +88,7 @@ The top 3 records from the list are :
 13
 9 
 
-13- 13 Write a program in C# Sharp to find the uppercase words in a string.
+13- 14 Write a program in C# Sharp to find the uppercase words in a string. User LING method syntax.
 Test Data :
 Input string : this IS a STRING
 Expected Output :
@@ -96,7 +96,7 @@ The UPPER CASE words are :
 IS
 STRING
 
-14- 13 Write a program in C# Sharp to convert a string array to a string.
+14- 14 Write a program in C# Sharp to convert a string array to a string.
 Test Data :
 Input array with 3 strings :
 Element[0] : cat
@@ -105,7 +105,7 @@ Element[2] : rat
 Expected Output:
 cat, dog, rat
 
-15- 13 Write a program in C# Sharp to find the n-th Maximum grade point achieved by the students from the list of students.
+15- 14 Write a program in C# Sharp to find the n-th Maximum grade point achieved by the students from the list of students.
 Test Data : 1 for first grade, 2 for second grade, 3 for third grade
 public class Students  
 {  
@@ -133,7 +133,7 @@ Expected Output for grade 3:
 Id : 7, Name : David, achieved Grade Point : 750
 Id : 10, Name : Jenny, achieved Grade Point : 750 
 
-16- 13 Write a program in C# Sharp to count file extensions and group it using LINQ.
+16- 14 Write a program in C# Sharp to count file extensions and group it using LINQ.
 Test Data :
 The files are : "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt"
 Expected Output :
@@ -145,9 +145,9 @@ Here is the group of extension of the files :
 1 File(s) with frt Extension
 1 File(s) with xml Extension
 
-17- 13 Lösen Sie die obige Aufgabe mit Methoden-Syntax.
+17- 14 Lösen Sie die obige Aufgabe mit Methoden-Syntax.
 
-18- 13 Write a program in C# Sharp to remove items from a list of string using remove function by passing the object. Schreiben Sie den Inhalt der Liste jedesmal vor und nachdem Entfernen als Linq-Ausdruck und dieses in foreach ausgeben.
+18- 14 Write a program in C# Sharp to remove items from a list of string using remove function by passing the object. Schreiben Sie den Inhalt der Liste jedesmal vor und nachdem Entfernen als Linq-Ausdruck und dieses in foreach ausgeben.
 Test Data :
 Char: m
 Char: n
@@ -161,7 +161,7 @@ Char: n
 Char: p
 Char: q 
 
-19- 13 Write a program in C# Sharp to find the strings for a specific minimum length. (use Linq)
+19- 14 Write a program in C# Sharp to find the strings for a specific minimum length. (use Linq)
 Test Data :
 Element[0] : this
 Element[1] : is
@@ -171,7 +171,7 @@ Input minimum length 5
 Expected Output:
 Item: string
 
-20- 13 Write a program in C# Sharp to generate a cartesian product of two sets. 
+20- 14 Write a program in C# Sharp to generate a cartesian product of two sets. 
 From { 'X', 'Y', 'Z' } and { 1, 2, 3, 4 };
 Expected Output :
 The cartesian product are :
@@ -850,11 +850,11 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-71- [MyFirstEfCoreApp] Write the SQL command produced to read Books and Author by the following code.
+71- 1 [MyFirstEfCoreApp] Write the SQL command produced to read Books and Author by the following code.
 foreach (var book in db.Books.AsNoTracking().Include(book => book.Author))
 {
 	... book.Title ...
 	... book.Author.Name ...	
 }
 
-72- [MyFirstEfCoreApp] Change the WebUrl of the book "Quantum Networking" by reading the new WebUrl in the Console and setting the WebUrl in the database table in a new static function called "ChangeWebUrl".
+72- 1 [MyFirstEfCoreApp] Change the WebUrl of the book "Quantum Networking" by reading the new WebUrl in the Console and setting the WebUrl in the database table in a new static function called "ChangeWebUrl".

@@ -204,55 +204,36 @@ static void Main(string[] args)
 }
 
 11-
-using System;
-using System.Collections.Generic;
-
-namespace exercises
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-        	List<int> numList = new List<int> { 55, 200, 740, 76, 230, 482, 95 }; 
-            var nums = numList.FindAll(x => x > 80);
-            
-            Console.WriteLine("The members of the list are :");
-            foreach(int num in nums)
-            {
-            	Console.WriteLine(num);
-            }
-            
-            Console.ReadLine();
-        }
-   }
+	List<int> numList = new List<int> { 55, 200, 740, 76, 230, 482, 95 }; 
+	var nums = numList.FindAll(x => x > 80);
+	
+	Console.WriteLine("The members of the list are :");
+	foreach(int num in nums)
+	{
+		Console.WriteLine(num);
+	}
+	
+	Console.ReadLine();
 }
 
 12-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-        	int record = 2;
-        	List<int> numList = new List<int> { 5, 7, 13, 24, 6, 9, 8, 7 };
-            
-            numList.Sort();
-            numList.Reverse();
-                       
-            Console.WriteLine("The top {0} records from the list are : ", record);
-            foreach(int num in numList.Take(record))
-            {
-            	Console.WriteLine(num);
-            }
-            
-            Console.ReadLine();
-        }
-   }
+	int record = 2;
+	List<int> numList = new List<int> { 5, 7, 13, 24, 6, 9, 8, 7 };
+	
+	numList.Sort();
+	numList.Reverse();
+			   
+	Console.WriteLine("The top {0} records from the list are : ", record);
+	foreach(int num in numList.Take(record))
+	{
+		Console.WriteLine(num);
+	}
+	
+	Console.ReadLine();
 }
 
 13-
@@ -282,19 +263,11 @@ namespace exercises
 }
 
 14-
-using System;
-
-namespace exercises
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-        	string[] strArr = { "cat", "dog", "rat" };            
-            var str =  String.Join(", ", strArr);             
-            Console.WriteLine(str);                 
-        }
-   }
+	string[] strArr = { "cat", "dog", "rat" };            
+	var str =  String.Join(", ", strArr);             
+	Console.WriteLine(str);                 
 }
 
 15-
@@ -353,59 +326,36 @@ namespace exercises
     }
 }
 
-16-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-
-namespace exercises
+16-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	string[] files = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };        
-        
-        var filegr = from file in files  
-                 group file by Path.GetExtension(file).TrimStart('.').ToLower() into g  
-                 select g;
-                     
-        foreach(var file in filegr) {                    
-        	Console.WriteLine(file.Count() + " File(s) with " + file.Key + " Extension"); 
-        }
-      }
-    }
+	string[] files = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };        
+
+	var filegr = from file in files  
+			 group file by Path.GetExtension(file).TrimStart('.').ToLower() into g  
+			 select g;
+				 
+	foreach(var file in filegr) {                    
+		Console.WriteLine(file.Count() + " File(s) with " + file.Key + " Extension"); 
+	}
 }
 
-17-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-
-namespace exercises
+17-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	string[] files = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };        
-        
-        var fGrp = files.Select(file => Path.GetExtension(file).TrimStart('.').ToLower())
-                     .GroupBy(z => z,(e, ctr) =>new
-                                                     {
-                                                        Extension = e,
-                                                        Count = ctr.Count()
-                                                      });
- 
-            foreach (var m in fGrp) {
-                Console.WriteLine("{0} File(s) with {1} Extension ",m.Count, m.Extension);
-            }
-        
-      }
-    }
-}
+	string[] files = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };        
+
+	var fGrp = files.Select(file => Path.GetExtension(file).TrimStart('.').ToLower())
+				 .GroupBy(z => z,(e, ctr) =>new
+												 {
+													Extension = e,
+													Count = ctr.Count()
+												  });
+
+	foreach (var m in fGrp) {
+		Console.WriteLine("{0} File(s) with {1} Extension ",m.Count, m.Extension);
+	}        
+} 
 
 18-
 using System;
@@ -1775,6 +1725,7 @@ static void AppendText(ref StringBuilder sb)
 71-
 SELECT [b].[BookId],
 [b].[AuthorId],
+[b].[Description],
 [b].[PublishedOn],
 [b].[Title],
 [a].[AuthorId],
