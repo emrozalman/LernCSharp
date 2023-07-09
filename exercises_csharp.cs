@@ -451,32 +451,23 @@ namespace exercises
     }
 }
 
-21-
-using System;
-using System.Linq;
-
-namespace exercises
+21-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-        char[] charset = { 'X', 'Y', 'Z' };
-		int[] numset = { 1, 2, 3, 4 };
-        string[] colorset = { "Green", "Orange" };
-	
-        var cartesianProduct = from letter in charset
-          						from number in numset
-                                from color in colorset
-          						select new { letter, number, color };
+	char[] charset = { 'X', 'Y', 'Z' };
+	int[] numset = { 1, 2, 3, 4 };
+	string[] colorset = { "Green", "Orange" };
 
-		Console.Write("The cartesian product are : \n");
-        foreach (var productItem in cartesianProduct)
-        {
-          Console.WriteLine(productItem);
-        }        
-      }
-    }
+	var cartesianProduct = from letter in charset
+							from number in numset
+							from color in colorset
+							select new { letter, number, color };
+
+	Console.Write("The cartesian product are : \n");
+	foreach (var productItem in cartesianProduct)
+	{
+	  Console.WriteLine(productItem);
+	}        
 }
 
 22- 
@@ -598,68 +589,43 @@ namespace exercises
     }
 }
 
-24-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+24-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	List<Item_mast> itemlist = new List<Item_mast>
-        {  
-       new Item_mast { ItemId = 1, ItemDes = "Biscuit  " }, 
-       new Item_mast { ItemId = 2, ItemDes = "Chocolate" }, 
-       new Item_mast { ItemId = 3, ItemDes = "Butter   " },  
-       new Item_mast { ItemId = 4, ItemDes = "Brade    " },  
-       new Item_mast { ItemId = 5, ItemDes = "Honey    " }  
-        }; 
-		  
-        List<Purchase> purchlist = new List<Purchase>
-        {  
-       new Purchase { InvNo=100, ItemId = 3,  PurQty = 800 }, 
-       new Purchase { InvNo=101, ItemId = 2,  PurQty = 650 }, 
-       new Purchase { InvNo=102, ItemId = 3,  PurQty = 900 },  
-       new Purchase { InvNo=103, ItemId = 4,  PurQty = 700 },
-       new Purchase { InvNo=104, ItemId = 3,  PurQty = 900 },  
-       new Purchase { InvNo=105, ItemId = 4,  PurQty = 650 },  		   
-       new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }  
-        }; 
-        	
-        var leftOuterJoin = from itm in itemlist
-            		join prch in purchlist
-            		on itm.ItemId equals prch.ItemId
-            		into a
-            			from b in a.DefaultIfEmpty(new Purchase())
-            			select new
-            			{
-                		itid=itm.ItemId,
-               			itdes = itm.ItemDes,
-                		prqty=b.PurQty
-            			};
+	List<Item_mast> itemlist = new List<Item_mast>
+	{  
+		new Item_mast { ItemId = 1, ItemDes = "Biscuit  " }, 
+		new Item_mast { ItemId = 2, ItemDes = "Chocolate" }, 
+		new Item_mast { ItemId = 3, ItemDes = "Butter   " },  
+		new Item_mast { ItemId = 4, ItemDes = "Brade    " },  
+		new Item_mast { ItemId = 5, ItemDes = "Honey    " }  
+	}; 
+	  
+	List<Purchase> purchlist = new List<Purchase>
+	{  
+		new Purchase { InvNo=100, ItemId = 3,  PurQty = 800 }, 
+		new Purchase { InvNo=101, ItemId = 2,  PurQty = 650 }, 
+		new Purchase { InvNo=102, ItemId = 3,  PurQty = 900 },  
+		new Purchase { InvNo=103, ItemId = 4,  PurQty = 700 },
+		new Purchase { InvNo=104, ItemId = 3,  PurQty = 900 },  
+		new Purchase { InvNo=105, ItemId = 4,  PurQty = 650 },  		   
+		new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }  
+	}; 
+		
+	var leftOuterJoin = from itm in itemlist
+						join prch in purchlist on itm.ItemId equals prch.ItemId	into a
+						from b in a.DefaultIfEmpty(new Purchase())
+						select new
+						{
+							itid=itm.ItemId,
+							itdes = itm.ItemDes,
+							prqty=b.PurQty
+						};
 
-		foreach (var item in leftOuterJoin)
-        {
-          Console.WriteLine("ID: {0}, Description: {1}, Menge: {2} ", item.itid, item.itdes, item.prqty);
-        } 
-      }
-    }
-    
-    public class Item_mast
-    {
-        public int ItemId { get; set; }
-        public string ItemDes { get; set; }
-    }
-
-    public class Purchase
-    {
-        public int InvNo { get; set; }
-        public int ItemId { get; set; }
-        public int PurQty { get; set; }
-    }
+	foreach (var item in leftOuterJoin)
+	{
+	  Console.WriteLine("ID: {0}, Description: {1}, Menge: {2} ", item.itid, item.itdes, item.prqty);
+	} 
 }
 
 25-
@@ -694,16 +660,14 @@ namespace exercises
         }; 
         	
         var rightOuterJoin = from p in purchlist
-            		join i in itemlist
-            		on p.ItemId equals i.ItemId
-            		into a
-            			from b in a.DefaultIfEmpty(new Item_mast())
-            			select new
-            			{
-                		itid = p.ItemId,
-               			itdes = b.ItemDes,
-                		prqty = p.PurQty
-            			};
+							join i in itemlist	on p.ItemId equals i.ItemId	into a
+            			    from b in a.DefaultIfEmpty(new Item_mast())
+							select new
+							{
+								itid = p.ItemId,
+								itdes = b.ItemDes,
+								prqty = p.PurQty
+							};
 
 		foreach (var item in rightOuterJoin)
         {
@@ -726,30 +690,20 @@ namespace exercises
     }
 }
 
-26-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+26-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	string[] cities = { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI",  "AMSTERDAM", "ROME"};
-        
-        IEnumerable<string> orderedCities =
-			cities.OrderBy(str => str.Length)
-                            .ThenBy(str => str);
-		 
-		foreach (var city in orderedCities)
-        {
-          Console.WriteLine(city);
-        } 
-      }
-    }  
-}
+	string[] cities = { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI",  "AMSTERDAM", "ROME"};
+
+	IEnumerable<string> orderedCities =
+		cities.OrderBy(str => str.Length)
+						.ThenBy(str => str);
+	 
+	foreach (var city in orderedCities)
+	{
+	  Console.WriteLine(city);
+	} 
+} 
 
 27-
 using System;
@@ -779,32 +733,22 @@ namespace exercises
     }  
 }
 
-28-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+28-       
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	string[] cities = { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI", "AMSTERDAM", "ROME"};        
-                       
-        var citySplit = from i in Enumerable.Range(0, cities.Length)
-                                    group cities[i] by i / 3;
-                                    
-        foreach (var cg in citySplit)
-        {
-        	Console.WriteLine("\n");
-            foreach(var c in cg) {
-          	Console.Write(c + " , ");
-          }  
-        }		
-      }
-    }  
-}
+	string[] cities = { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI", "AMSTERDAM", "ROME"};        
+				   
+	var citySplit = from i in Enumerable.Range(0, cities.Length)
+								group cities[i] by i / 3;
+								
+	foreach (var cg in citySplit)
+	{
+		Console.WriteLine("\n");
+		foreach(var c in cg) {
+		Console.Write(c + " , ");
+	  }  
+	}		
+} 
 
 29-
 using System;
@@ -848,76 +792,47 @@ namespace exercises
 	}
 }
 
-30-
-using System;
-using System.Text.RegularExpressions;
-
-namespace exercises
+30-       
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	Console.WriteLine("#f08080" + "->" + test("#f08080"));
-        Console.WriteLine("#EFFA07A" + "->" + test("#EFFA07A"));
-        Console.WriteLine("#E9967A" + "->" + test("#E9967A"));
-        Console.WriteLine("#CD5C5C" + "->" + test("#CD5C5C"));       	
-      }
-      
-      public static bool test(string hc)
-      {
-      	return Regex.IsMatch(hc, @"[#][0-9A-Fa-f]{6}\b");
-      }
-    }  
+	Console.WriteLine("#f08080" + "->" + test("#f08080"));
+	Console.WriteLine("#EFFA07A" + "->" + test("#EFFA07A"));
+	Console.WriteLine("#E9967A" + "->" + test("#E9967A"));
+	Console.WriteLine("#CD5C5C" + "->" + test("#CD5C5C"));       	
 }
 
-31-
-using System;
-using System.Text.RegularExpressions;
-using System.Linq;
-
-namespace exercises
+public static bool test(string hc)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	Console.WriteLine("CPP Exercises." + "->" + test("CPP Exercises."));
-        Console.WriteLine("C# syntax is highly expressive, yet it is also simple and easy to learn." + "->" + test("C# syntax is highly expressive, yet it is also simple and easy to learn."));
-        Console.WriteLine("C# is an elegant and type-safe object-oriented language" + "->" + test("C# is an elegant and type-safe object-oriented language"));              	
-      }
-      
-      public static double test(string text)
-      {
-        string new_text = Regex.Replace(text, "[^A-Za-z ]", "");
-        double average_len = new_text.Split(' ').Select(x => x.Length).Average();
-        return Math.Round(average_len, 2);
-      }
-    }  
+	return Regex.IsMatch(hc, @"[#][0-9A-Fa-f]{6}\b");
 }
 
-32-
-using System;
-using System.Text.RegularExpressions;
-using System.Linq;
-
-namespace exercises
+31-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-       	Console.WriteLine("amamd" + "->" + test("amamd"));
-        Console.WriteLine("pamamd" + "->" + test("pamamd"));        
-        Console.WriteLine("ferre" + "->" + test("ferre"));       
-      }
-      
-      public static bool test(string text)
-        {
-            bool result = Regex.Replace(string.Concat(text.OrderBy(x => x)),@"([a-z])\1{1}",string.Empty).Length <= 1;
-            return result;
-        }
-    }  
+	Console.WriteLine("CPP Exercises." + "->" + test("CPP Exercises."));
+	Console.WriteLine("C# syntax is highly expressive, yet it is also simple and easy to learn." + "->" + test("C# syntax is highly expressive, yet it is also simple and easy to learn."));
+	Console.WriteLine("C# is an elegant and type-safe object-oriented language" + "->" + test("C# is an elegant and type-safe object-oriented language"));              	
+}
+
+public static double test(string text)
+{
+	string new_text = Regex.Replace(text, "[^A-Za-z ]", "");
+	double average_len = new_text.Split(' ').Select(x => x.Length).Average();
+	return Math.Round(average_len, 2);
+}
+
+32-       
+static void Main(string[] args)
+{
+	Console.WriteLine("amamd" + "->" + test("amamd"));
+	Console.WriteLine("pamamd" + "->" + test("pamamd"));        
+	Console.WriteLine("ferre" + "->" + test("ferre"));       
+}
+
+public static bool test(string text)
+{
+	bool result = Regex.Replace(string.Concat(text.OrderBy(x => x)),@"([a-z])\1{1}",string.Empty).Length <= 1;
+	return result;
 }
 
 33-
@@ -1723,36 +1638,78 @@ static void AppendText(ref StringBuilder sb)
 }
 
 71-
-SELECT [b].[BookId],
-[b].[AuthorId],
-[b].[Description],
-[b].[PublishedOn],
-[b].[Title],
-[a].[AuthorId],
-[a].[Name],
-[a].[WebUrl]
-FROM [Books] AS [b]
-INNER JOIN [Author] AS [a] ON
-[b].[AuthorId] = [a].[AuthorId]
-
-72-
-public static void ChangeWebUrl()
+public class PeopleContext : DbContext
 {
-	Console.Write("New Quantum Networking WebUrl > ");
-	var newWebUrl = Console.ReadLine();
+	public PeopleContext(DbContextOptions options) : base(options) {}
 
-	using (var db = new AppDbContext())
-	{
-		var singleBook = db.Books
-			.Include(book => book.Author)
-			.Single(book => book.Title == "Quantum Networking");
-
-		singleBook.Author.WebUrl = newWebUrl;
-		db.SaveChanges();
-		Console.WriteLine("... SaveChanges called.");
-	}	
+	public DbSet<Book> Books { get; set; }
+}
+	
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }
 }
 
+72-
+migrationBuilder.CreateTable(
+	name: "Books",
+	columns: table => new
+	{
+		BookId = table.Column<int>(type: "int", nullable: false)
+			.Annotation("SqlServer:Identity", "1, 1"),
+		Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+		Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+		PublishedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+		Publisher = table.Column<string>(type: "nvarchar(max)", nullable: false),
+		Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+		ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+		SoftDeleted = table.Column<bool>(type: "bit", nullable: false)
+	},
+	constraints: table =>
+	{
+		table.PrimaryKey("PK_Books", x => x.BookId);
+	});
+
+73-
+public class PeopleContext : DbContext
+{
+	public PeopleContext(DbContextOptions options) : base(options) {}
+
+	public DbSet<Book> Books { get; set; }
+	public DbSet<PriceOffer> PriceOffers { get; set; }
+}
+	
+public class PriceOffer
+{
+	public int PriceOfferId { get; set; }
+	public decimal NewPrice { get; set; }
+	public string PromotionalText { get; set; }
+	
+	//relationships
+	public int BookId { get; set; }
+}
+
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }
+	
+	//relationships
+	public PriceOffer Promotion { get; set; }       
+}
 
 
 

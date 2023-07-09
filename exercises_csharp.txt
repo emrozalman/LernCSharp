@@ -188,7 +188,7 @@ The cartesian product are :
 { letterList = Z, numberList = 3 }
 { letterList = Z, numberList = 4 }
 
-21- 13 Write a program in C# Sharp to generate a cartesian product of three sets.
+21- 14 Write a program in C# Sharp to generate a cartesian product of three sets.
 From { 'X', 'Y', 'Z' } , { 1, 2, 3, 4 } and { "Green", "Orange" }
 Expected Output :
 The cartesian product are :
@@ -201,7 +201,7 @@ The cartesian product are :
 { letter = Y, number = 1, colour = Green }
 { letter = Y, number = 1, colour = Orange }
 
-22- 13 Write a program in C# Sharp to generate an Inner Join (use where and not join) between two data sets.
+22- 14 Write a program in C# Sharp to generate an Inner Join (use where and not join) between two data sets.
 Item ID         Item Name       Purchase Quantity                                                             
 -------------------------------------------------------                                          
 1          Biscuit         458                                                                   
@@ -248,7 +248,7 @@ List<Purchase> purchlist = new List<Purchase>
    new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }
 };
 	
-23- 13 Lösen Sie die Aufgabe 22 mit "Linq inner join". Geben Sie die Werte diesmal so aus:
+23- 14 Lösen Sie die Aufgabe 22 mit "Linq inner join". Geben Sie die Werte diesmal so aus:
 ID: 1, Description: Biscuit  , Menge: 458 
 ID: 2, Description: Chocolate, Menge: 650 
 ID: 3, Description: Butter   , Menge: 800 
@@ -257,14 +257,14 @@ ID: 3, Description: Butter   , Menge: 900
 ID: 4, Description: Brade    , Menge: 700 
 ID: 4, Description: Brade    , Menge: 650 
 
-24- 13 Write a program in C# Sharp to generate a Left Join between two data sets. Use the data of "22".
+24- 14 Write a program in C# Sharp to generate a Left Join between two data sets. Use the data of "22".
 
-25- 13 Write a program in C# Sharp to generate a Right Outer Join between two data sets. Use the data of "22".
+25- 14 Write a program in C# Sharp to generate a Right Outer Join between two data sets. Use the data of "22".
 
-26- 13 Write a program in C# Sharp to display the list of items in the array according to the length of the string then by name in ascending order. (Use Linq Method Syntax)
+26- 14 Write a program in C# Sharp to display the list of items in the array according to the length of the string then by name in ascending order. (Use Linq Method Syntax)
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI", "AMSTERDAM", "ROME"}
 
-27- 13 Write a program in C# to split a collection of strings into some groups of the same length.
+27- 14 Write a program in C# to split a collection of strings into some groups of the same length.
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI",  "AMSTERDAM", "ROME"}
 Expected Output :
 CALIFORNIA , 
@@ -274,14 +274,14 @@ LONDON , ZURICH ,
 NAIROBI , 
 ROME , 
 
-28- 13 Write a program in C# Sharp to split a collection of strings into groups of three elements.
+28- 14 Write a program in C# Sharp to split a collection of strings into groups of three elements.
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI",  "AMSTERDAM", "ROME"}
 Expected Output :
 CALIFORNIA , PARIS , NEW DELHI , 
 LONDON , ABU DHABI , ZURICH ,
 NAIROBI , AMSTERDAM , ROME ,
 
-29 - 13 Write a program in C# Sharp to arrange the distinct elements in the list in ascending order. Data:
+29 - 14 Write a program in C# Sharp to arrange the distinct elements in the list in ascending order. Data:
 class Item_Mast
 {
   public int 	ItemId { get; set; }
@@ -306,26 +306,26 @@ Brade
 Butter
 Honey
 
-30- 13 Write a C# Sharp program to check whether a given string is a valid Hex code or not. Return true if the said string is a valid code otherwise false. (use Regex)
+30- 14 Write a C# Sharp program to check whether a given string is a valid Hex code or not. Return true if the said string is a valid code otherwise false. (use Regex)
 Sample Data:
 ("#CD5C5C") -> True
 ("#f08080") -> True
 ("#E9967A") -> True
 ("#EFFA07A") -> False
 
-31- 13 Write a C# Sharp program to calculate the average word length in a given string. Round the average length up to two decimal places.
+31- 14 Write a C# Sharp program to calculate the average word length in a given string. Round the average length up to two decimal places.
 Sample Data:
 ("CPP Exercises." -> 6
 ("C# syntax is highly expressive, yet it is also simple and easy to learn.") -> 4
 ("C# is an elegant and type-safe object-oriented language") -> 5.62
 
-32- 13 Write a C# Sharp program to check whether a given string of characters can be transformed into a palindrome. Return true otherwise false. A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam or racecar.
+32- 14 Write a C# Sharp program to check whether a given string of characters can be transformed into a palindrome. Return true otherwise false. A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam or racecar.
 Sample Data:
 ("amamd") -> True
 ("pamamd") -> False
 ("ferre") -> True
 
-33- 13 Write a C# Sharp program to validate a password of length 7 to 16 characters with the following guidelines:
+33- 14 Write a C# Sharp program to validate a password of length 7 to 16 characters with the following guidelines:
 • Length between 7 and 16 characters.
 • At least one lowercase letter (a-z).
 • At least one uppercase letter (A-Z).
@@ -850,11 +850,25 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-71- 1 [MyFirstEfCoreApp] Write the SQL command produced to read Books and Author by the following code.
-foreach (var book in db.Books.AsNoTracking().Include(book => book.Author))
+71- [EFDemoApp] Create the table Books with the following columns.
+Title
+Description
+PublishedOn (DateTime)
+Publisher
+Price (decimal)
+ImageUrl
+SoftDeleted (bool)
+
+72- [EFDemoApp] Write the generated migrationBuilder.CreateTable().
+
+73- [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
+public class PriceOffer
 {
-	... book.Title ...
-	... book.Author.Name ...	
+	public int PriceOfferId { get; set; }
+	public decimal NewPrice { get; set; }
+	public string PromotionalText { get; set; }
 }
 
-72- 1 [MyFirstEfCoreApp] Change the WebUrl of the book "Quantum Networking" by reading the new WebUrl in the Console and setting the WebUrl in the database table in a new static function called "ChangeWebUrl".
+
+
+
