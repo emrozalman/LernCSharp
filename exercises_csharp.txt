@@ -338,12 +338,12 @@ Sample Data:
 ("sdsd723#$Amid") -> True
 ("sdsd723#$Amidkiouy") -> False
 
-34- 13 Write a C# Sharp program to check whether two given strings contain the same character pattern.
+34- 14 Write a C# Sharp program to check whether two given strings contain the same character pattern.
 Sample Data:
 ("AACC", "PPRR") -> True
 ("FFGG", "ADAD") -> False
 
-35- 13 Write a C# Sharp program to check for repeated occurrences of words in a given string.
+35- 14 Write a C# Sharp program to check for repeated occurrences of words in a given string.
 Sample Data:
 "C# C# syntax is highly expressive, yet it is is also simple and easy to to learn learn."
 Expected output:
@@ -352,35 +352,35 @@ Expected output:
 'to' repeated at positions 69 and 72
 'learn' repeated at positions 75 and 81
 
-36- 13 Write a C# Sharp program to remove the special characters from a given text. Return the new string which allowed alphanumeric characters, spaces, underscores _ and dashes -
+36- 14 Write a C# Sharp program to remove the special characters from a given text. Return the new string which allowed alphanumeric characters, spaces, underscores _ and dashes -
 Sample Data:
 ("AA@%^&CC") -> "AACC"
 ("Python") -> "Python"
 ("w3resource.com") -> "w3resourcecom"
 
-37- 13 Write a C# Sharp program to find the word "C#" in a given string. If the word "C#" found return "C# document found." otherwise return “Sorry no C# document!". Mit regulären Ausdrücken lösen!
+37- 14 Write a C# Sharp program to find the word "C#" in a given string. If the word "C#" found return "C# document found." otherwise return “Sorry no C# document!". Mit regulären Ausdrücken lösen!
 Sample Data:
 ("C# Exercises") -> "C# document found."
 ("Python Exercises") -> "Sorry no C# document!"
 ("Tutorial on c#") -> "C# document found."
 
-38- 13 Write a program in C# Sharp to check whether a character is an alphabet and not and if so, go to check for the case.
+38- 14 Write a program in C# Sharp to check whether a character is an alphabet and not and if so, go to check for the case.
 Test Data :
 Input a character: Z
 Expected Output :
 "uppercase" or "lowercase" or "not an alphabetic character"
 
-39- 13 Write a program which asks the user for an integer number and answers if it is prime number or not.
+39- 14 Write a program which asks the user for an integer number and answers if it is prime number or not.
 Test Data :
 Enter a number: 7
 Expected Output:
 "prime number" or "no prime number"
 
-40- 13 Write a C# Sharp program to calculate the full product of two 32-bit numbers.
+40- 14 Write a C# Sharp program to calculate the full product of two 32-bit numbers.
 Expected Output:
 2147483647 * 2147483647 = 4611686014132420609
 
-41- 13 Use an array delegate to compute the Diameter, Circumference, and Area of a circle with radious "10".
+41- 14 Use an array delegate to compute the Diameter, Circumference, and Area of a circle with radious "10".
 Test Data :
 public class Circle
 {
@@ -405,7 +405,7 @@ Diameter         : 20
 Circumference    : 62.8318
 Area             : 314.159
 
-42- 13 Implement multicast delegates using the Add and Sub methods.
+42- 14 Implement multicast delegates using the Add and Sub methods.
 Test Data :
 public class Oper
 {
@@ -424,14 +424,14 @@ Expected Output:
 4 - 2 = 2
 1 + 9 = 10
 
-43- 13 Sort the numbers { 3, 0, 2, 5, -1, 4, 1 } with bubble sort. Display the array before and after sorting.
+43- 14 Sort the numbers { 3, 0, 2, 5, -1, 4, 1 } with bubble sort. Display the array before and after sorting.
 
-44- 13 Write a C# Sharp program to check whether a given integer is a palindrome integer or not. Return true if the number is a palindrome, otherwise return false. 
+44- 14 Write a C# Sharp program to check whether a given integer is a palindrome integer or not. Return true if the number is a palindrome, otherwise return false. 
 123456 => False
 16461  => True
 -121   => False
 
-45- 13 Implement Stock() and PriceChangedEventArgs()
+45- 14 Implement Stock() and PriceChangedEventArgs()
 Test Data :
 static void Main(string[] args)
 {
@@ -456,20 +456,20 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-46- 13 Write the Iterator "EvenSequence" to return the even numbers in the given range.
+46- 14 Write the Iterator "EvenSequence" to return the even numbers in the given range.
 Test Data :
 foreach(int ev in EvenSequence(6, 12))
 {
 	Console.Write(ev + " ");
 }
 
-47- 13 Write the low-lever code of the following enumeration.
+47- 14 Write the low-lever code of the following enumeration.
 foreach (char c in "Mona")
 {
 	Console.WriteLine(c);
 }
 
-48- 13 Write the Area method as extension method of the Circle class.
+48- 14 Write the Area method as extension method of the Circle class.
 public double Area(double Radius)
 {
 	const double PI = 3.14159;
@@ -501,7 +501,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-49- 13 How converts the compiler the following code with nullable value types?
+49- 14 How converts the compiler the following code with nullable value types?
 static void Main(string[] args)
 {
 	int? x = 5;
@@ -513,7 +513,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-50- 13 Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
+50- 14 Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
 static IEnumerable<int> Numbers ()
 {
 	yield return 1;
@@ -850,7 +850,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-71- [EFDemoApp] Create the table Books with the following columns.
+71- 1 [EFDemoApp] Create the table Books with the following columns.
 Title
 Description
 PublishedOn (DateTime)
@@ -859,15 +859,70 @@ Price (decimal)
 ImageUrl
 SoftDeleted (bool)
 
-72- [EFDemoApp] Write the generated migrationBuilder.CreateTable().
+72- 1 [EFDemoApp] Write the generated migrationBuilder.CreateTable().
 
-73- [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
+73- 1 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }        
+}
+
 public class PriceOffer
 {
 	public int PriceOfferId { get; set; }
 	public decimal NewPrice { get; set; }
 	public string PromotionalText { get; set; }
 }
+
+74- [EFDemoApp] Write the method modelBuilder.Entity() for the one-to-one relationship of the previous task.
+
+75- [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }        
+}
+	
+public class Review
+{
+	public int ReviewId { get; set; }
+	public string VoterName { get; set; }
+	public int NumStars { get; set; }
+	public string Comment { get; set; }
+}
+
+76- Create a many-to-many relationship between a Book and a Author.
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }        
+}
+
+public class Author
+{
+	public int AuthorId { get; set; }
+	public string Name { get; set; }        
+}
+
 
 
 

@@ -916,54 +916,36 @@ namespace exercises
     }  
 }
 
-36-
-using System;
-using System.Text.RegularExpressions;
-
-namespace exercises
+36-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	Console.WriteLine("AA@%^&CC -> " + test("AA@%^&CC"));
-        Console.WriteLine("Python -> " + test("Python"));
-        Console.WriteLine("w3resource.com -> " + test("w3resource.com"));
-      }
-      
-      public static string test(string text)
-      {
-      	return Regex.Replace(text, @"[^A-Za-z0-9\s_-]", "");
-      }
-    }  
+	Console.WriteLine("AA@%^&CC -> " + test("AA@%^&CC"));
+	Console.WriteLine("Python -> " + test("Python"));
+	Console.WriteLine("w3resource.com -> " + test("w3resource.com"));
 }
 
-37-
-using System;
-using System.Text.RegularExpressions;
-
-namespace exercises
+public static string test(string text)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	Console.WriteLine("C# Exercises -> " + test("C# Exercises"));
-        Console.WriteLine("Python Exercises -> " + test("Python Exercises"));
-        Console.WriteLine("Tutorial on c# -> " + test("Tutorial on c#"));
-      }
-      
-      public static string test(string text)
-      {
-      	if(Regex.IsMatch(text, Regex.Escape("C#"), RegexOptions.IgnoreCase))
-        {
-        	return "C# document found.";
-        } else
-        {
-        	return "Sorry no C# document!";
-        }      	
-      }
-    }  
+	return Regex.Replace(text, @"[^A-Za-z0-9\s_-]", "");
+} 
+
+37-      
+static void Main(string[] args)
+{
+	Console.WriteLine("C# Exercises -> " + test("C# Exercises"));
+	Console.WriteLine("Python Exercises -> " + test("Python Exercises"));
+	Console.WriteLine("Tutorial on c# -> " + test("Tutorial on c#"));
+}
+
+public static string test(string text)
+{
+	if(Regex.IsMatch(text, Regex.Escape("C#"), RegexOptions.IgnoreCase))
+	{
+		return "C# document found.";
+	} else
+	{
+		return "Sorry no C# document!";
+	}      	
 }
 
 38-
@@ -1711,7 +1693,111 @@ public class Book
 	public PriceOffer Promotion { get; set; }       
 }
 
+74-
+modelBuilder.Entity("EFDataAccessLibrary.Models.PriceOffer", b =>
+{
+	b.HasOne("EFDataAccessLibrary.Models.Book", null)
+		.WithOne("Promotion")
+		.HasForeignKey("EFDataAccessLibrary.Models.PriceOffer", "BookId")
+		.OnDelete(DeleteBehavior.Cascade)
+		.IsRequired();
+});
 
+75-
+public class PeopleContext : DbContext
+{
+	public PeopleContext(DbContextOptions options) : base(options) {}
+	public DbSet<Book> Books { get; set; }        
+}
 
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }
+	
+	public ICollection<Review> Reviews { get; set; }
+}
 
+public class Review
+{
+	public int ReviewId { get; set; }
+	public string VoterName { get; set; }
+	public int NumStars { get; set; }
+	public string Comment { get; set; }
+
+	//-----------------------------------------
+	//Relationships
+
+	public int BookId { get; set; } //#M
+}
+
+modelBuilder.Entity("EFDataAccessLibrary.Models.Review", b =>
+{
+	b.HasOne("EFDataAccessLibrary.Models.Book", null)
+		.WithMany("Reviews")
+		.HasForeignKey("BookId")
+		.OnDelete(DeleteBehavior.Cascade)
+		.IsRequired();
+});
+
+modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
+{
+	b.Navigation("Reviews");
+});
+
+76-
+public class PeopleContext : DbContext
+{
+	public PeopleContext(DbContextOptions options) : base(options) {}
+
+	public DbSet<Book> Books { get; set; }
+	public DbSet<Author> Authors { get; set; }
+
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	{
+		modelBuilder.Entity<BookAuthor>()
+			.HasKey(x => new { x.BookId, x.AuthorId });
+	}		
+}
+
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }
+
+	public ICollection<BookAuthor>
+		AuthorsLink
+	{ get; set; }
+}
+
+public class Author
+{
+	public int AuthorId { get; set; }
+	public string Name { get; set; }        
+
+	public ICollection<BookAuthor>
+		BooksLink
+	{ get; set; }
+}
+
+public class BookAuthor
+{
+	public int BookId { get; set; }
+	public int AuthorId { get; set; }        
+	
+	public Book Book { get; set; }
+	public Author Author { get; set; }
+}
 
