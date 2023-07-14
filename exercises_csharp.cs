@@ -1703,6 +1703,12 @@ modelBuilder.Entity("EFDataAccessLibrary.Models.PriceOffer", b =>
 		.IsRequired();
 });
 
+modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
+{
+	b.Navigation("Promotion")
+		.IsRequired();
+});
+
 75-
 public class PeopleContext : DbContext
 {
@@ -1733,8 +1739,7 @@ public class Review
 
 	//-----------------------------------------
 	//Relationships
-
-	public int BookId { get; set; } //#M
+	public int BookId { get; set; }
 }
 
 modelBuilder.Entity("EFDataAccessLibrary.Models.Review", b =>
@@ -1777,9 +1782,7 @@ public class Book
 	public string ImageUrl { get; set; }
 	public bool SoftDeleted { get; set; }
 
-	public ICollection<BookAuthor>
-		AuthorsLink
-	{ get; set; }
+	public ICollection<BookAuthor> AuthorsLink { get; set; }
 }
 
 public class Author
@@ -1787,9 +1790,7 @@ public class Author
 	public int AuthorId { get; set; }
 	public string Name { get; set; }        
 
-	public ICollection<BookAuthor>
-		BooksLink
-	{ get; set; }
+	public ICollection<BookAuthor> BooksLink { get; set; }
 }
 
 public class BookAuthor
@@ -1801,3 +1802,32 @@ public class BookAuthor
 	public Author Author { get; set; }
 }
 
+77-
+modelBuilder.Entity("EFDataAccessLibrary.Models.BookAuthor", b =>
+{
+	b.HasOne("EFDataAccessLibrary.Models.Author", "Author")
+		.WithMany("BooksLink")
+		.HasForeignKey("AuthorId")
+		.OnDelete(DeleteBehavior.Cascade)
+		.IsRequired();
+
+	b.HasOne("EFDataAccessLibrary.Models.Book", "Book")
+		.WithMany("AuthorsLink")
+		.HasForeignKey("BookId")
+		.OnDelete(DeleteBehavior.Cascade)
+		.IsRequired();
+
+	b.Navigation("Author");
+
+	b.Navigation("Book");
+});
+
+modelBuilder.Entity("EFDataAccessLibrary.Models.Author", b =>
+{
+	b.Navigation("BooksLink");
+});
+
+modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
+{
+	b.Navigation("AuthorsLink");
+});
