@@ -86,29 +86,20 @@ static void Main(string[] args)
 	}             
 }
 
-5-
-using System;
-using System.Linq;
-
-namespace exercises
+5-     
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-			var arr1 = new[] { 3, 9, 2, 8, 6, 5 };
-                	     
-            var sqNo = from int Number in arr1
-                    let SqrNo = Number * Number
-                    where SqrNo > 20
-                    select new { Number, SqrNo };
+	var arr1 = new[] { 3, 9, 2, 8, 6, 5 };
+				 
+	var sqNo = from int Number in arr1
+			let SqrNo = Number * Number
+			where SqrNo > 20
+			select new { Number, SqrNo };
 
-            foreach (var num in sqNo)
-            {
-                Console.WriteLine("{0} ", num);
-            }             
-        }
-   }
+	foreach (var num in sqNo)
+	{
+		Console.WriteLine("{0} ", num);
+	}             
 }
 
 6-
@@ -157,30 +148,21 @@ static void Main(string[] args)
 	} 
 }
 
-9-
-using System;
-using System.Linq;
-
-namespace exercises
+9-      
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-			int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };          
-            
-            var n = from x in nums
-                    group x by x into y
-                    select y;             
-            
-            foreach (var arrEle in n)  
-            {  
-              Console.WriteLine(arrEle.Key + "\t" + arrEle.Sum() + "\t" + arrEle.Count());
-            } 
-        }
-   }
+	int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };    
+	
+	var n = from x in nums
+			group x by x into y
+			select y;             
+	
+	foreach (var arrEle in n)  
+	{  
+	  Console.WriteLine(arrEle.Key + "\t" + arrEle.Sum() + "\t" + arrEle.Count());
+	} 
 }
-
+ 
 10-     
 static void Main(string[] args)
 {
@@ -1658,8 +1640,65 @@ migrationBuilder.CreateTable(
 	{
 		table.PrimaryKey("PK_Books", x => x.BookId);
 	});
-
+	
 73-
+public void OnGet()
+{
+	var bookToAdd = new Book
+	{
+		Title = "Entity Framework Core IN ACTION",
+		Description = ".NET Entity Framework advanced book",
+		PublishedOn = new DateTime(2020, 1, 1),
+		Publisher = "Jon P. Smith",
+		Price = 55,
+		ImageUrl = "www.manning.com",
+		SoftDeleted = false
+	};
+
+	_db.Add(bookToAdd);
+	_db.SaveChanges();
+}
+
+public class PeopleContext : DbContext
+{
+	public PeopleContext(DbContextOptions options) : base(options) {}	
+	public DbSet<Book> Books { get; set;}	
+}
+
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }
+}
+
+74- 
+exec sp_executesql N'SET IMPLICIT_TRANSACTIONS OFF; 
+SET NOCOUNT ON;
+INSERT INTO [Books] ([Description], [ImageUrl], [Price], [PublishedOn], [Publisher], [SoftDeleted], [Title])  
+OUTPUT INSERTED.[BookId]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+',N'@p0 nvarchar(4000),
+@p1 nvarchar(4000),
+@p2 decimal(18,2),
+@p3 datetime2(7),
+@p4 nvarchar(4000),
+@p5 bit,
+@p6 nvarchar(4000)',
+@p0=N'An advanced book about EF Core',
+@p1=N'www.image.de/image',
+@p2=66.00,
+@p3='2022-01-01 00:00:00',
+@p4=N'John P.Smith',
+@p5=0,
+@p6=N'Entity Framework Core IN ACTION'
+
+75-
 public class PeopleContext : DbContext
 {
 	public PeopleContext(DbContextOptions options) : base(options) {}
@@ -1693,7 +1732,7 @@ public class Book
 	public PriceOffer Promotion { get; set; }       
 }
 
-74-
+76-
 modelBuilder.Entity("EFDataAccessLibrary.Models.PriceOffer", b =>
 {
 	b.HasOne("EFDataAccessLibrary.Models.Book", null)
@@ -1709,7 +1748,7 @@ modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
 		.IsRequired();
 });
 
-75-
+77-
 public class PeopleContext : DbContext
 {
 	public PeopleContext(DbContextOptions options) : base(options) {}
@@ -1756,7 +1795,32 @@ modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
 	b.Navigation("Reviews");
 });
 
-76-
+78-
+public void OnGet()
+{	
+	var bookToAdd = new Book
+	{
+		Title = "Test Book",                
+		Description = "This is only a test book",
+		PublishedOn = DateTime.Today,
+		Publisher = "Dr. Testmann",
+		ImageUrl = "www.test.de",
+		Reviews = new List<Review>
+		{
+			new Review
+			{
+				NumStars = 5,
+				Comment = "Great test book!",
+				VoterName = "Mr U Test"
+			}
+		}
+	};
+
+	_db.Add(bookToAdd);
+	_db.SaveChanges();
+}
+
+79-
 public class PeopleContext : DbContext
 {
 	public PeopleContext(DbContextOptions options) : base(options) {}
@@ -1802,7 +1866,7 @@ public class BookAuthor
 	public Author Author { get; set; }
 }
 
-77-
+80-
 modelBuilder.Entity("EFDataAccessLibrary.Models.BookAuthor", b =>
 {
 	b.HasOne("EFDataAccessLibrary.Models.Author", "Author")
@@ -1831,3 +1895,5 @@ modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
 {
 	b.Navigation("AuthorsLink");
 });
+
+
