@@ -218,30 +218,20 @@ static void Main(string[] args)
 	Console.ReadLine();
 }
 
-13-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+13-       
+static void Main(string[] args)
 {
-   class Program
-   {       
-        static void Main(string[] args)
-        {
-        	string str = "this IS a STRING with UPPER text";
-            
-            var upWord =  str.Split(' ')
-						.Where(x => String.Equals(x, x.ToUpper(),
-                        StringComparison.Ordinal));         
-                       
-            Console.WriteLine("The UPPER CASE words are :");
-            foreach(string w in upWord)
-            {
-            	Console.WriteLine(w);
-            }            
-        }
-   }
+	string str = "this IS a STRING with UPPER text";
+	
+	var upWord =  str.Split(' ')
+				.Where(x => String.Equals(x, x.ToUpper(),
+				StringComparison.Ordinal));         
+			   
+	Console.WriteLine("The UPPER CASE words are :");
+	foreach(string w in upWord)
+	{
+		Console.WriteLine(w);
+	}            
 }
 
 14-
@@ -339,98 +329,69 @@ static void Main(string[] args)
 	}        
 } 
 
-18-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-
-namespace exercises
+18-     
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	List<string> listOfString = new List<string>();  
-            listOfString.Add("m");  
-            listOfString.Add("n");  
-            listOfString.Add("o");  
-            listOfString.Add("p");  
-            listOfString.Add("q");        
-            
-            var _result1 = from y in listOfString  
-            select y; 
-            
-            foreach(var tchar in _result1)  
-            {  
-                Console.WriteLine("Char: {0} ", tchar);  
-            } 
-           
-            string newstr =  listOfString.FirstOrDefault(en => en == "o");  
-            listOfString.Remove(newstr);  
- 
-            var _result = from z in listOfString  
-            select z;  
-  	    
-        	Console.WriteLine("\nNach dem Entfernen:");
-            foreach(var rChar in _result)  
-            {  
-                Console.WriteLine("Char: {0} ", rChar);  
-            }   
-      }
-    }
-}
-
-19-
-using System;
-using System.Linq;
-
-namespace exercises
-{
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-        int minLength = 2;
-        string[] strArr = { "this", "is", "a", "string" };  
-
-        var result = from str in strArr 
-          where str.Length >= minLength
-          orderby str
-          select str; 
-
-        foreach(var str in result)  
-        {  
-          Console.WriteLine("Item: {0} ", str);  
-        }             
-      }
-    }
-}
-
-20-
-using System;
-using System.Linq;
-
-namespace exercises
-{
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-        char[] charset1 = { 'X', 'Y', 'Z' };
-		int[] numset1 = { 1, 2, 3, 4 };
+	List<string> listOfString = new List<string>();  
+		listOfString.Add("m");  
+		listOfString.Add("n");  
+		listOfString.Add("o");  
+		listOfString.Add("p");  
+		listOfString.Add("q");        
 	
-        var cartesianProduct = from letterList in charset1
-          						from numberList in numset1
-          						select new { letterList, numberList };
+	var _result1 = from y in listOfString  
+	select y; 
+	
+	foreach(var tchar in _result1)  
+	{  
+		Console.WriteLine("Char: {0} ", tchar);  
+	} 
+   
+	string newstr =  listOfString.FirstOrDefault(en => en == "o");  
+	listOfString.Remove(newstr);  
 
-		Console.Write("The cartesian product are : \n");
-        foreach (var productItem in cartesianProduct)
-        {
-          Console.WriteLine(productItem);
-        }        
-      }
-    }
+	var _result = from z in listOfString  
+	select z;  
+
+	Console.WriteLine("\nNach dem Entfernen:");
+	foreach(var rChar in _result)  
+	{  
+		Console.WriteLine("Char: {0} ", rChar);  
+	}   
+}
+
+19-       
+static void Main(string[] args)
+{
+	int minLength = 2;
+	string[] strArr = { "this", "is", "a", "string" };  
+
+	var result = from str in strArr 
+	  where str.Length >= minLength
+	  orderby str
+	  select str; 
+
+	foreach(var str in result)  
+	{  
+	  Console.WriteLine("Item: {0} ", str);  
+	}             
+}
+ 
+20-       
+static void Main(string[] args)
+{
+	char[] charset1 = { 'X', 'Y', 'Z' };
+	int[] numset1 = { 1, 2, 3, 4 };
+
+	var cartesianProduct = from letterList in charset1
+						   from numberList in numset1
+						   select new { letterList, numberList };
+
+	Console.Write("The cartesian product are : \n");
+	foreach (var productItem in cartesianProduct)
+	{
+	  Console.WriteLine(productItem);
+	}        
 }
 
 21-      
@@ -452,123 +413,103 @@ static void Main(string[] args)
 	}        
 }
 
-22- 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+22-       
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	List<Item_mast> itemlist = new List<Item_mast>
-        {  
-       new Item_mast { ItemId = 1, ItemDes = "Biscuit  " }, 
-       new Item_mast { ItemId = 2, ItemDes = "Chocolate" }, 
-       new Item_mast { ItemId = 3, ItemDes = "Butter   " },  
-       new Item_mast { ItemId = 4, ItemDes = "Brade    " },  
-       new Item_mast { ItemId = 5, ItemDes = "Honey    " }  
-        }; 
-		  
-        List<Purchase> purchlist = new List<Purchase>
-        {  
-       new Purchase { InvNo=100, ItemId = 3,  PurQty = 800 }, 
-       new Purchase { InvNo=101, ItemId = 2,  PurQty = 650 }, 
-       new Purchase { InvNo=102, ItemId = 3,  PurQty = 900 },  
-       new Purchase { InvNo=103, ItemId = 4,  PurQty = 700 },
-       new Purchase { InvNo=104, ItemId = 3,  PurQty = 900 },  
-       new Purchase { InvNo=105, ItemId = 4,  PurQty = 650 },  		   
-       new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }  
-        }; 
-        	
-        var cartesianProduct = from item in itemlist
-          						from purch in purchlist
-                                where item.ItemId == purch.ItemId
-                                select new { item.ItemId, item.ItemDes, purch.PurQty };         
+	List<Item_mast> itemlist = new List<Item_mast>
+	{  
+	   new Item_mast { ItemId = 1, ItemDes = "Biscuit  " }, 
+	   new Item_mast { ItemId = 2, ItemDes = "Chocolate" }, 
+	   new Item_mast { ItemId = 3, ItemDes = "Butter   " },  
+	   new Item_mast { ItemId = 4, ItemDes = "Brade    " },  
+	   new Item_mast { ItemId = 5, ItemDes = "Honey    " }  
+	}; 
+	  
+	List<Purchase> purchlist = new List<Purchase>
+	{  
+	   new Purchase { InvNo=100, ItemId = 3,  PurQty = 800 }, 
+	   new Purchase { InvNo=101, ItemId = 2,  PurQty = 650 }, 
+	   new Purchase { InvNo=102, ItemId = 3,  PurQty = 900 },  
+	   new Purchase { InvNo=103, ItemId = 4,  PurQty = 700 },
+	   new Purchase { InvNo=104, ItemId = 3,  PurQty = 900 },  
+	   new Purchase { InvNo=105, ItemId = 4,  PurQty = 650 },  		   
+	   new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }  
+	}; 
+		
+	var cartesianProduct = from item in itemlist
+							from purch in purchlist
+							where item.ItemId == purch.ItemId
+							select new { item.ItemId, item.ItemDes, purch.PurQty };         
 
-		Console.Write("The cartesian product are : \n");
-        foreach (var productItem in cartesianProduct)
-        {
-          Console.WriteLine(productItem);
-        }        
-      }
-    }
+	Console.Write("The cartesian product are : \n");
+	foreach (var productItem in cartesianProduct)
+	{
+	  Console.WriteLine(productItem);
+	} 
+}    
     
-    public class Item_mast
-    {
-        public int ItemId { get; set; }
-        public string ItemDes { get; set; }
-    }
-
-    public class Purchase
-    {
-        public int InvNo { get; set; }
-        public int ItemId { get; set; }
-        public int PurQty { get; set; }
-    }
+public class Item_mast
+{
+	public int ItemId { get; set; }
+	public string ItemDes { get; set; }
 }
 
-23-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+public class Purchase
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	List<Item_mast> itemlist = new List<Item_mast>
-        {  
-       new Item_mast { ItemId = 1, ItemDes = "Biscuit  " }, 
-       new Item_mast { ItemId = 2, ItemDes = "Chocolate" }, 
-       new Item_mast { ItemId = 3, ItemDes = "Butter   " },  
-       new Item_mast { ItemId = 4, ItemDes = "Brade    " },  
-       new Item_mast { ItemId = 5, ItemDes = "Honey    " }  
-        }; 
-		  
-        List<Purchase> purchlist = new List<Purchase>
-        {  
-       new Purchase { InvNo=100, ItemId = 3,  PurQty = 800 }, 
-       new Purchase { InvNo=101, ItemId = 2,  PurQty = 650 }, 
-       new Purchase { InvNo=102, ItemId = 3,  PurQty = 900 },  
-       new Purchase { InvNo=103, ItemId = 4,  PurQty = 700 },
-       new Purchase { InvNo=104, ItemId = 3,  PurQty = 900 },  
-       new Purchase { InvNo=105, ItemId = 4,  PurQty = 650 },  		   
-       new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }  
-        }; 
-        	
-        var innerJoin = from item in itemlist
-			join purch in purchlist on item.ItemId equals purch.ItemId  
-			select new  
-			{  
+	public int InvNo { get; set; }
+	public int ItemId { get; set; }
+	public int PurQty { get; set; }
+}
+
+23-       
+static void Main(string[] args)
+{
+	List<Item_mast> itemlist = new List<Item_mast>
+	{  
+	   new Item_mast { ItemId = 1, ItemDes = "Biscuit  " }, 
+	   new Item_mast { ItemId = 2, ItemDes = "Chocolate" }, 
+	   new Item_mast { ItemId = 3, ItemDes = "Butter   " },  
+	   new Item_mast { ItemId = 4, ItemDes = "Brade    " },  
+	   new Item_mast { ItemId = 5, ItemDes = "Honey    " }  
+	}; 
+	  
+	List<Purchase> purchlist = new List<Purchase>
+	{  
+	   new Purchase { InvNo=100, ItemId = 3,  PurQty = 800 }, 
+	   new Purchase { InvNo=101, ItemId = 2,  PurQty = 650 }, 
+	   new Purchase { InvNo=102, ItemId = 3,  PurQty = 900 },  
+	   new Purchase { InvNo=103, ItemId = 4,  PurQty = 700 },
+	   new Purchase { InvNo=104, ItemId = 3,  PurQty = 900 },  
+	   new Purchase { InvNo=105, ItemId = 4,  PurQty = 650 },  		   
+	   new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }  
+	}; 
+		
+	var innerJoin = from item in itemlist
+		join purch in purchlist on item.ItemId equals purch.ItemId  
+		select new  
+		{  
 			itid = item.ItemId,  
 			itdes = item.ItemDes,  
 			prqty = purch.PurQty  
-			};  
+		};  
 
-		foreach (var item in innerJoin)
-        {
-          Console.WriteLine("ID: {0}, Description: {1}, Menge: {2} ", item.itid, item.itdes, item.prqty);
-        } 
-      }
-    }
+	foreach (var item in innerJoin)
+	{
+	  Console.WriteLine("ID: {0}, Description: {1}, Menge: {2} ", item.itid, item.itdes, item.prqty);
+	} 
+}    
     
-    public class Item_mast
-    {
-        public int ItemId { get; set; }
-        public string ItemDes { get; set; }
-    }
+public class Item_mast
+{
+	public int ItemId { get; set; }
+	public string ItemDes { get; set; }
+}
 
-    public class Purchase
-    {
-        public int InvNo { get; set; }
-        public int ItemId { get; set; }
-        public int PurQty { get; set; }
-    }
+public class Purchase
+{
+	public int InvNo { get; set; }
+	public int ItemId { get; set; }
+	public int PurQty { get; set; }
 }
 
 24-      
@@ -595,13 +536,13 @@ static void Main(string[] args)
 	}; 
 		
 	var leftOuterJoin = from itm in itemlist
-						join prch in purchlist on itm.ItemId equals prch.ItemId	into a
-						from b in a.DefaultIfEmpty(new Purchase())
+						join prch in purchlist on itm.ItemId equals prch.ItemId	into g
+						from p in g.DefaultIfEmpty(new Purchase())
 						select new
 						{
-							itid=itm.ItemId,
+							itid = itm.ItemId,
 							itdes = itm.ItemDes,
-							prqty=b.PurQty
+							prqty = p.PurQty
 						};
 
 	foreach (var item in leftOuterJoin)
@@ -610,66 +551,56 @@ static void Main(string[] args)
 	} 
 }
 
-25-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+25-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	List<Item_mast> itemlist = new List<Item_mast>
-        {  
-       new Item_mast { ItemId = 1, ItemDes = "Biscuit  " }, 
-       new Item_mast { ItemId = 2, ItemDes = "Chocolate" }, 
-       new Item_mast { ItemId = 3, ItemDes = "Butter   " },  
-       new Item_mast { ItemId = 4, ItemDes = "Brade    " },  
-       new Item_mast { ItemId = 5, ItemDes = "Honey    " }  
-        }; 
-		  
-        List<Purchase> purchlist = new List<Purchase>
-        {  
-       new Purchase { InvNo=100, ItemId = 3,  PurQty = 800 }, 
-       new Purchase { InvNo=101, ItemId = 2,  PurQty = 650 }, 
-       new Purchase { InvNo=102, ItemId = 3,  PurQty = 900 },  
-       new Purchase { InvNo=103, ItemId = 4,  PurQty = 700 },
-       new Purchase { InvNo=104, ItemId = 3,  PurQty = 900 },  
-       new Purchase { InvNo=105, ItemId = 4,  PurQty = 650 },  		   
-       new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }       
-        }; 
-        	
-        var rightOuterJoin = from p in purchlist
-							join i in itemlist	on p.ItemId equals i.ItemId	into a
-            			    from b in a.DefaultIfEmpty(new Item_mast())
-							select new
-							{
-								itid = p.ItemId,
-								itdes = b.ItemDes,
-								prqty = p.PurQty
-							};
+	List<Item_mast> itemlist = new List<Item_mast>
+	{  
+		new Item_mast { ItemId = 1, ItemDes = "Biscuit  " }, 
+		new Item_mast { ItemId = 2, ItemDes = "Chocolate" }, 
+		new Item_mast { ItemId = 3, ItemDes = "Butter   " },  
+		new Item_mast { ItemId = 4, ItemDes = "Brade    " },  
+		new Item_mast { ItemId = 5, ItemDes = "Honey    " }  
+	}; 
+	  
+	List<Purchase> purchlist = new List<Purchase>
+	{  
+		new Purchase { InvNo=100, ItemId = 3,  PurQty = 800 }, 
+		new Purchase { InvNo=101, ItemId = 2,  PurQty = 650 }, 
+		new Purchase { InvNo=102, ItemId = 3,  PurQty = 900 },  
+		new Purchase { InvNo=103, ItemId = 4,  PurQty = 700 },
+		new Purchase { InvNo=104, ItemId = 3,  PurQty = 900 },  
+		new Purchase { InvNo=105, ItemId = 4,  PurQty = 650 },  		   
+		new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }       
+	}; 
+		
+	var rightOuterJoin = from p in purchlist
+						join i in itemlist on p.ItemId equals i.ItemId	into g
+						from b in g.DefaultIfEmpty(new Item_mast())
+						select new
+						{
+							itid = p.ItemId,
+							itdes = b.ItemDes,
+							prqty = p.PurQty
+						};
 
-		foreach (var item in rightOuterJoin)
-        {
-          Console.WriteLine("ID: {0}, Description: {1}, Menge: {2} ", item.itid, item.itdes, item.prqty);
-        } 
-      }
-    }
+	foreach (var item in rightOuterJoin)
+	{
+	  Console.WriteLine("ID: {0}, Description: {1}, Menge: {2} ", item.itid, item.itdes, item.prqty);
+	} 
+}    
     
-    public class Item_mast
-    {
-        public int ItemId { get; set; }
-        public string ItemDes { get; set; }
-    }
+public class Item_mast
+{
+	public int ItemId { get; set; }
+	public string ItemDes { get; set; }
+}
 
-    public class Purchase
-    {
-        public int InvNo { get; set; }
-        public int ItemId { get; set; }
-        public int PurQty { get; set; }
-    }
+public class Purchase
+{
+	public int InvNo { get; set; }
+	public int ItemId { get; set; }
+	public int PurQty { get; set; }
 }
 
 26-      
@@ -1749,6 +1680,69 @@ modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
 });
 
 77-
+public void OnGet()
+{
+	var book = _db.Books
+		.First(p => p.Promotion == null);
+
+	book.Promotion = new PriceOffer
+	{
+		NewPrice = book.Price / 2,
+		PromotionalText = "Half price today!"
+	};
+
+	_db.SaveChanges();
+}
+
+78-
+SELECT TOP(1) [b].[BookId], [b].[Description], [b].[ImageUrl], [b].[Price],
+[b].[PublishedOn], [b].[Publisher], [b].[SoftDeleted], [b].[Title]  
+FROM [Books] AS [b]  
+LEFT JOIN [PricesOffers] AS [p] ON [b].[BookId] = [p].[BookId]  
+WHERE [p].[PriceOfferId] IS NULL
+
+exec sp_executesql 
+N'SET IMPLICIT_TRANSACTIONS OFF;  SET NOCOUNT ON;  
+INSERT INTO [PricesOffers] ([BookId], [NewPrice], [PromotionalText])  
+OUTPUT INSERTED.[PriceOfferId]  
+VALUES (@p0, @p1, @p2);  ',
+N'@p0 int,@p1 decimal(18,2),@p2 nvarchar(4000)',
+@p0=4,@p1=33.00,@p2=N'Half price today 14:50!'
+
+79-
+public void OnGet()
+{
+	var book = _db.Books
+		.Include(p => p.Promotion)
+		.First(p => p.Promotion != null);
+
+	book.Promotion = new PriceOffer
+	{
+		NewPrice = book.Price / 2,
+		PromotionalText = "Half price todayxxxx!"
+	};
+
+	_db.SaveChanges();
+}
+
+80-
+SELECT TOP(1) [b].[BookId], [b].[Description], [b].[ImageUrl], [b].[Price], 
+[b].[PublishedOn], [b].[Publisher], [b].[SoftDeleted], [b].[Title], 
+[p].[PriceOfferId], [p].[BookId], [p].[NewPrice], [p].[PromotionalText]  
+FROM [Books] AS [b]
+LEFT JOIN [PricesOffers] AS [p] ON [b].[BookId] = [p].[BookId]  
+WHERE [p].[PriceOfferId] IS NOT NULL
+
+exec sp_executesql 
+N'SET NOCOUNT ON;  
+DELETE FROM [PricesOffers]  OUTPUT 1  WHERE [PriceOfferId] = @p0;
+INSERT INTO [PricesOffers] ([BookId], [NewPrice], [PromotionalText])  
+OUTPUT INSERTED.[PriceOfferId]  
+VALUES (@p1, @p2, @p3);  ',
+N'@p0 int,@p1 int,@p2 decimal(18,2),@p3 nvarchar(4000)',
+@p0=4,@p1=1,@p2=33.00,@p3=N'Half price today 14:50!'
+
+81-
 public class PeopleContext : DbContext
 {
 	public PeopleContext(DbContextOptions options) : base(options) {}
@@ -1795,7 +1789,7 @@ modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
 	b.Navigation("Reviews");
 });
 
-78-
+82-
 public void OnGet()
 {	
 	var bookToAdd = new Book
@@ -1820,7 +1814,7 @@ public void OnGet()
 	_db.SaveChanges();
 }
 
-79-
+83-
 public class PeopleContext : DbContext
 {
 	public PeopleContext(DbContextOptions options) : base(options) {}
@@ -1866,7 +1860,7 @@ public class BookAuthor
 	public Author Author { get; set; }
 }
 
-80-
+84-
 modelBuilder.Entity("EFDataAccessLibrary.Models.BookAuthor", b =>
 {
 	b.HasOne("EFDataAccessLibrary.Models.Author", "Author")
@@ -1895,5 +1889,132 @@ modelBuilder.Entity("EFDataAccessLibrary.Models.Book", b =>
 {
 	b.Navigation("AuthorsLink");
 });
+
+85-
+public class PeopleContext : DbContext
+{
+	public PeopleContext(DbContextOptions options) : base(options) {}
+	
+	public DbSet<Book> Books { get; set; }
+	public DbSet<Tag> Tags { get; set; }	
+}
+
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }	
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }	
+	public decimal Price { get; set; }	
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }
+	
+	public ICollection<Tag> Tags { get; set; }
+}
+
+public class Tag
+{
+	public string TagId { get; set; }
+
+	public ICollection<Book> Books { get; set; }
+}
+
+86-
+public void OnGet()
+{
+	var firstBook = _db.Books
+		.Include(book => book.Reviews)
+		.FirstOrDefault();
+}
+		
+SELECT [t].[BookId], [t].[Description], [t].[ImageUrl], [t].[Price], [t].[PublishedOn], 
+[t].[Publisher], [t].[SoftDeleted], [t].[Title], 
+[r].[ReviewId], [r].[BookId], [r].[Comment], [r].[NumStars], [r].[VoterName]  
+FROM ( SELECT TOP(1) [b].[BookId], [b].[Description], [b].[ImageUrl], [b].[Price], [b].[PublishedOn], 
+[b].[Publisher], [b].[SoftDeleted], [b].[Title]  
+FROM [Books] AS [b] ) AS [t]  
+LEFT JOIN [Review] AS [r] ON [t].[BookId] = [r].[BookId]  
+ORDER BY [t].[BookId]
+
+87-
+public void OnGet()
+{
+	var firstBook = _db.Books.First();
+	var reviews = _db.Entry(firstBook)
+		.Collection(book => book.Reviews)
+		.Query().Count();
+}
+		
+SELECT TOP(1) [b].[BookId], [b].[Description], [b].[ImageUrl], [b].[Price], [b].[PublishedOn], 
+[b].[Publisher], [b].[SoftDeleted], [b].[Title]  
+FROM [Books] AS [b]
+
+exec sp_executesql N'SELECT COUNT(*)  FROM [Review] AS [r]  
+WHERE [r].[BookId] = @__p_0',N'@__p_0 int',@__p_0=1
+
+88-
+public void OnGet()
+{
+	var firstBook = _db.Books.First();
+	_db.Entry(firstBook)
+		.Collection(book => book.Reviews).Load();
+}
+
+SELECT TOP(1) [b].[BookId], [b].[Description], [b].[ImageUrl], [b].[Price], [b].[PublishedOn], 
+[b].[Publisher], [b].[SoftDeleted], [b].[Title]  
+FROM [Books] AS [b]
+
+exec sp_executesql N'SELECT [r].[ReviewId], [r].[BookId], [r].[Comment], [r].[NumStars], [r].[VoterName]  
+FROM [Review] AS [r]  
+WHERE [r].[BookId] = @__p_0',N'@__p_0 int',@__p_0=1
+
+89-
+public void OnGet()
+{
+	var firstBook = _db.Books.First();
+	var starRatings = _db.Entry(firstBook)
+		.Collection(book => book.Reviews)
+		.Query().Select(review => review.NumStars)
+		.ToList();
+}
+
+SELECT TOP(1) [b].[BookId], [b].[Description], [b].[ImageUrl], [b].[Price], [b].[PublishedOn], 
+[b].[Publisher], [b].[SoftDeleted], [b].[Title]  
+FROM [Books] AS [b]
+
+exec sp_executesql N'SELECT [r].[NumStars]  
+FROM [Review] AS [r]  WHERE [r].[BookId] = @__p_0',N'@__p_0 int',@__p_0=1
+
+90-
+public void OnGet()
+{
+	var books = _db.Books
+		.Select(book => new
+		{
+			book.Title,
+			book.Price,
+			NumReviews = book.Reviews.Count,
+
+		}).ToList();            
+}
+
+SELECT [b].[Title], [b].[Price], 
+( SELECT COUNT(*)      
+  FROM [Review] AS [r]
+  WHERE [b].[BookId] = [r].[BookId]) 
+AS [NumReviews]  FROM [Books] AS [b]
+
+91-
+public void OnGet()
+{
+	var book = _db.Books
+		.Include(p => p.Promotion)
+		.Include(p => p.Reviews)
+		.Single(p => p.Description == "EF Core"); 
+	
+	_db.Books.Remove(book);
+	_db.SaveChanges();
+}
 
 

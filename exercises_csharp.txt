@@ -67,7 +67,7 @@ Input ending character for the string : M
 Expected Output :
 The city starting with A and ending with M is : AMSTERDAM
 
-11- 14 Write a program in C# Sharp to create a list of numbers and display the numbers greater than 80 as output. (use List)
+11- 15 Write a program in C# Sharp to create a list of numbers and display the numbers greater than 80 as output. (use List)
 Test Data :
 The members of the list are :
 55, 200, 740, 76, 230, 482, 95
@@ -79,7 +79,7 @@ The numbers greater than 80 are :
 482
 95
 
-12- 14 Write a program in C# Sharp to display the top n-th records. (use List)
+12- 15 Write a program in C# Sharp to display the top n-th records. (use List)
 Test Data :
 The members of the list are : 5, 7, 13, 24, 6, 9, 8, 7 
 Expected Output :
@@ -88,7 +88,7 @@ The top 3 records from the list are :
 13
 9 
 
-13- 14 Write a program in C# Sharp to find the uppercase words in a string. User LING method syntax.
+13- 15 Write a program in C# Sharp to find the uppercase words in a string. User LING method syntax.
 Test Data :
 Input string : this IS a STRING
 Expected Output :
@@ -96,7 +96,7 @@ The UPPER CASE words are :
 IS
 STRING
 
-14- 14 Write a program in C# Sharp to convert a string array to a string.
+14- 15 Write a program in C# Sharp to convert a string array to a string.
 Test Data :
 Input array with 3 strings :
 Element[0] : cat
@@ -105,7 +105,7 @@ Element[2] : rat
 Expected Output:
 cat, dog, rat
 
-15- 14 Write a program in C# Sharp to find the n-th Maximum grade point achieved by the students from the list of students.
+15- 15 Write a program in C# Sharp to find the n-th Maximum grade point achieved by the students from the list of students.
 Test Data : 1 for first grade, 2 for second grade, 3 for third grade
 public class Students  
 {  
@@ -133,7 +133,7 @@ Expected Output for grade 3:
 Id : 7, Name : David, achieved Grade Point : 750
 Id : 10, Name : Jenny, achieved Grade Point : 750 
 
-16- 14 Write a program in C# Sharp to count file extensions and group it using LINQ.
+16- 15 Write a program in C# Sharp to count file extensions and group it using LINQ.
 Test Data :
 The files are : "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt"
 Expected Output :
@@ -145,9 +145,9 @@ Here is the group of extension of the files :
 1 File(s) with frt Extension
 1 File(s) with xml Extension
 
-17- 14 Lösen Sie die obige Aufgabe mit Methoden-Syntax.
+17- 15 Lösen Sie die obige Aufgabe mit Methoden-Syntax.
 
-18- 14 Write a program in C# Sharp to remove items from a list of string using remove function by passing the object. Schreiben Sie den Inhalt der Liste jedesmal vor und nachdem Entfernen als Linq-Ausdruck und dieses in foreach ausgeben.
+18- 15 Write a program in C# Sharp to remove items from a list of string using remove function by passing the object. Schreiben Sie den Inhalt der Liste jedesmal vor und nachdem Entfernen als Linq-Ausdruck und dieses in foreach ausgeben.
 Test Data :
 Char: m
 Char: n
@@ -161,7 +161,7 @@ Char: n
 Char: p
 Char: q 
 
-19- 14 Write a program in C# Sharp to find the strings for a specific minimum length. (use Linq)
+19- 15 Write a program in C# Sharp to find the strings for a specific minimum length. (use Linq)
 Test Data :
 Element[0] : this
 Element[1] : is
@@ -171,7 +171,7 @@ Input minimum length 5
 Expected Output:
 Item: string
 
-20- 14 Write a program in C# Sharp to generate a cartesian product of two sets. 
+20- 15 Write a program in C# Sharp to generate a cartesian product of two sets. 
 From { 'X', 'Y', 'Z' } and { 1, 2, 3, 4 };
 Expected Output :
 The cartesian product are :
@@ -188,7 +188,7 @@ The cartesian product are :
 { letterList = Z, numberList = 3 }
 { letterList = Z, numberList = 4 }
 
-21- 14 Write a program in C# Sharp to generate a cartesian product of three sets.
+21- 15 Write a program in C# Sharp to generate a cartesian product of three sets.
 From { 'X', 'Y', 'Z' } , { 1, 2, 3, 4 } and { "Green", "Orange" }
 Expected Output :
 The cartesian product are :
@@ -201,7 +201,7 @@ The cartesian product are :
 { letter = Y, number = 1, colour = Green }
 { letter = Y, number = 1, colour = Orange }
 
-22- 14 Write a program in C# Sharp to generate an Inner Join (use where and not join) between two data sets.
+22- 15 Write a program in C# Sharp to generate an Inner Join (use where and not join) between two data sets.
 Item ID         Item Name       Purchase Quantity                                                             
 -------------------------------------------------------                                          
 1          Biscuit         458                                                                   
@@ -248,7 +248,7 @@ List<Purchase> purchlist = new List<Purchase>
    new Purchase { InvNo=106, ItemId = 1,  PurQty = 458 }
 };
 	
-23- 14 Lösen Sie die Aufgabe 22 mit "Linq inner join". Geben Sie die Werte diesmal so aus:
+23- 15 Lösen Sie die Aufgabe 22 mit "Linq inner join". Geben Sie die Werte diesmal so aus:
 ID: 1, Description: Biscuit  , Menge: 458 
 ID: 2, Description: Chocolate, Menge: 650 
 ID: 3, Description: Butter   , Menge: 800 
@@ -257,9 +257,9 @@ ID: 3, Description: Butter   , Menge: 900
 ID: 4, Description: Brade    , Menge: 700 
 ID: 4, Description: Brade    , Menge: 650 
 
-24- 14 Write a program in C# Sharp to generate a Left Join between two data sets. Use the data of "22".
+24- 15 Write a program in C# Sharp to generate a Left Join between two data sets. Use the data of "22".
 
-25- 14 Write a program in C# Sharp to generate a Right Outer Join between two data sets. Use the data of "22".
+25- 15 Write a program in C# Sharp to generate a Right Outer Join between two data sets. Use the data of "22".
 
 26- 14 Write a program in C# Sharp to display the list of items in the array according to the length of the string then by name in ascending order. (Use Linq Method Syntax)
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI", "AMSTERDAM", "ROME"}
@@ -861,7 +861,7 @@ SoftDeleted (bool)
 
 72- 3 [EFDemoApp] Write the generated migrationBuilder.CreateTable().
 
-73- 1 [EFDemoApp] Add a new Book to the Books table (without any relationship).
+73- 3 [EFDemoApp] Add a new Book to the Books table (without any relationship).
 Title -> Entity Framework Core IN ACTION
 Description -> An advanced book about EF Core
 PublishedOn -> 01.01.2022
@@ -870,9 +870,9 @@ Price (decimal) -> 66
 ImageUrl -> www.image.de/image
 SoftDeleted -> false
 
-74- 1 [EFDemoApp] Write the generated SQL statement of the previous task.
+74- 3 [EFDemoApp] Write the generated SQL statement of the previous task.
 
-75- 2 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
+75- 3 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
 public class Book
 {
 	public int BookId { get; set; }
@@ -892,9 +892,17 @@ public class PriceOffer
 	public string PromotionalText { get; set; }
 }
 
-76- 2 [EFDemoApp] Write the methods modelBuilder.Entity() for the one-to-one relationship of the previous task.
+76- 3 [EFDemoApp] Write the methods modelBuilder.Entity() for the one-to-one relationship of the previous task.
 
-77- 3 [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
+77- 1 [EFDemoApp] Add a new promotional price to an existing book that does not have a promotional price yet.
+
+78- 1 [EFDemoApp] Write the SQL queries of the previous task.
+
+79- 1 [EFDemoApp] Add a new promotional price to an existing book that already have a promotional price.
+
+80- 1 [EFDemoApp] Write the SQL queries of the previous task.
+
+81- 3 [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
 public class Book
 {
 	public int BookId { get; set; }
@@ -915,9 +923,20 @@ public class Review
 	public string Comment { get; set; }
 }
 
-78- [EFDemoApp] Add a new Book which contains a Review to the Books table.
+82- 3 [EFDemoApp] Add a new Book which contains a Review to the Books table.
+Title -> Entity Framework Core IN ACTION
+Description -> An advanced book about EF Core
+PublishedOn -> 01.01.2022
+Publisher -> John P. Smith
+Price (decimal) -> 66 
+ImageUrl -> www.image.de/image
+SoftDeleted -> false
+----------------------------------------------
+VoterName -> Hosai Hamidi
+NumStars -> 4
+Comment -> A nice book
 
-79- 2 [EFDemoApp] Create a many-to-many relationship between a Book and a Author.
+83- 3 [EFDemoApp] Create a many-to-many relationship between a Book and a Author.
 public class Book
 {
 	public int BookId { get; set; }
@@ -936,10 +955,37 @@ public class Author
 	public string Name { get; set; }        
 }
 
-80- 1 [EFDemoApp] Write the three (BookAuthor, Book, Author) modelBuilder.Entity() calls for modeling the previous many-to-many relationship.
+84- 2 [EFDemoApp] Write the three (BookAuthor, Book, Author) modelBuilder.Entity() calls for modeling the previous many-to-many relationship.
 
+85- [EFDemoApp] Create a many-to-many relationship between a Book and a Tag table using the "Autoconfigured By EF Core" feature.
+public class Book
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public DateTime PublishedOn { get; set; }
+	public string Publisher { get; set; }
+	public decimal Price { get; set; }
+	public string ImageUrl { get; set; }
+	public bool SoftDeleted { get; set; }        
+}
 
+public class Tag
+{
+	public string TagId { get; set; }	
+}
 
+86- Write the code for the eager loading of the first book with the corresponding Reviews relationship and write also the generated SQL queries.
+
+87- Write the code to read the number of reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
+
+88- Write the code to read the reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
+
+89- Write the code to read the NumStars of all reviews of the first book as a list unsing the "Explicit Loading". Write the generated SQL queries.
+
+90- Write the code to read the Title, Price and number of reviews of all books using the "Select Loading".
+
+91- Delete the book with the Description "EF Core" including its promotions in "Promotion" and reviews in "Reviews".
 
 
 
