@@ -261,10 +261,10 @@ ID: 4, Description: Brade    , Menge: 650
 
 25- 15 Write a program in C# Sharp to generate a Right Outer Join between two data sets. Use the data of "22".
 
-26- 14 Write a program in C# Sharp to display the list of items in the array according to the length of the string then by name in ascending order. (Use Linq Method Syntax)
+26- 15 Write a program in C# Sharp to display the list of items in the array according to the length of the string then by name in ascending order. (Use Linq Method Syntax)
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI", "AMSTERDAM", "ROME"}
 
-27- 14 Write a program in C# to split a collection of strings into some groups of the same length.
+27- 15 Write a program in C# to split a collection of strings into some groups of the same length.
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI",  "AMSTERDAM", "ROME"}
 Expected Output :
 CALIFORNIA , 
@@ -274,14 +274,14 @@ LONDON , ZURICH ,
 NAIROBI , 
 ROME , 
 
-28- 14 Write a program in C# Sharp to split a collection of strings into groups of three elements.
+28- 15 Write a program in C# Sharp to split a collection of strings into groups of three elements.
 Data: { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI",  "AMSTERDAM", "ROME"}
 Expected Output :
 CALIFORNIA , PARIS , NEW DELHI , 
 LONDON , ABU DHABI , ZURICH ,
 NAIROBI , AMSTERDAM , ROME ,
 
-29 - 14 Write a program in C# Sharp to arrange the distinct elements in the list in ascending order. Data:
+29 - 15 Write a program in C# Sharp to arrange the distinct elements in the list in ascending order. Data:
 class Item_Mast
 {
   public int 	ItemId { get; set; }
@@ -306,26 +306,26 @@ Brade
 Butter
 Honey
 
-30- 14 Write a C# Sharp program to check whether a given string is a valid Hex code or not. Return true if the said string is a valid code otherwise false. (use Regex)
+30- 15 Write a C# Sharp program to check whether a given string is a valid Hex code or not. Return true if the said string is a valid code otherwise false. (use Regex)
 Sample Data:
 ("#CD5C5C") -> True
 ("#f08080") -> True
 ("#E9967A") -> True
 ("#EFFA07A") -> False
 
-31- 14 Write a C# Sharp program to calculate the average word length in a given string. Round the average length up to two decimal places.
+31- 15 Write a C# Sharp program to calculate the average word length in a given string. Round the average length up to two decimal places.
 Sample Data:
 ("CPP Exercises." -> 6
 ("C# syntax is highly expressive, yet it is also simple and easy to learn.") -> 4
 ("C# is an elegant and type-safe object-oriented language") -> 5.62
 
-32- 14 Write a C# Sharp program to check whether a given string of characters can be transformed into a palindrome. Return true otherwise false. A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam or racecar.
+32- 15 Write a C# Sharp program to check whether a given string of characters can be transformed into a palindrome. Return true otherwise false. A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam or racecar.
 Sample Data:
 ("amamd") -> True
 ("pamamd") -> False
 ("ferre") -> True
 
-33- 14 Write a C# Sharp program to validate a password of length 7 to 16 characters with the following guidelines:
+33- 15 Write a C# Sharp program to validate a password of length 7 to 16 characters with the following guidelines:
 • Length between 7 and 16 characters.
 • At least one lowercase letter (a-z).
 • At least one uppercase letter (A-Z).
@@ -338,12 +338,12 @@ Sample Data:
 ("sdsd723#$Amid") -> True
 ("sdsd723#$Amidkiouy") -> False
 
-34- 14 Write a C# Sharp program to check whether two given strings contain the same character pattern.
+34- 15 Write a C# Sharp program to check whether two given strings contain the same character pattern.
 Sample Data:
 ("AACC", "PPRR") -> True
 ("FFGG", "ADAD") -> False
 
-35- 14 Write a C# Sharp program to check for repeated occurrences of words in a given string.
+35- 15 Write a C# Sharp program to check for repeated occurrences of words in a given string.
 Sample Data:
 "C# C# syntax is highly expressive, yet it is is also simple and easy to to learn learn."
 Expected output:
@@ -850,7 +850,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-71- 3 [EFDemoApp] Create the table Books with the following columns.
+71- 4 [EFDemoApp] Create the table Books with the following columns.
 Title
 Description
 PublishedOn (DateTime)
@@ -859,9 +859,9 @@ Price (decimal)
 ImageUrl
 SoftDeleted (bool)
 
-72- 3 [EFDemoApp] Write the generated migrationBuilder.CreateTable().
+72- 4 [EFDemoApp] Write the generated migrationBuilder.CreateTable().
 
-73- 3 [EFDemoApp] Add a new Book to the Books table (without any relationship).
+73- 4 [EFDemoApp] Add a new Book to the Books table (without any relationship).
 Title -> Entity Framework Core IN ACTION
 Description -> An advanced book about EF Core
 PublishedOn -> 01.01.2022
@@ -870,9 +870,9 @@ Price (decimal) -> 66
 ImageUrl -> www.image.de/image
 SoftDeleted -> false
 
-74- 3 [EFDemoApp] Write the generated SQL statement of the previous task.
+74- 4 [EFDemoApp] Write the generated SQL statement of the previous task.
 
-75- 3 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
+75- 4 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
 public class Book
 {
 	public int BookId { get; set; }
@@ -892,17 +892,17 @@ public class PriceOffer
 	public string PromotionalText { get; set; }
 }
 
-76- 3 [EFDemoApp] Write the methods modelBuilder.Entity() for the one-to-one relationship of the previous task.
+76- 4 [EFDemoApp] Write the methods modelBuilder.Entity() for the one-to-one relationship of the previous task.
 
-77- 1 [EFDemoApp] Add a new promotional price to an existing book that does not have a promotional price yet.
+77- 4 [EFDemoApp] Add a new promotional price to an existing book that does not have a promotional price yet.
 
-78- 1 [EFDemoApp] Write the SQL queries of the previous task.
+78- 4 [EFDemoApp] Write the SQL queries of the previous task.
 
-79- 1 [EFDemoApp] Add a new promotional price to an existing book that already have a promotional price.
+79- 4 [EFDemoApp] Add a new promotional price to an existing book that already have a promotional price.
 
-80- 1 [EFDemoApp] Write the SQL queries of the previous task.
+80- 4 [EFDemoApp] Write the SQL queries of the previous task.
 
-81- 3 [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
+81- 4 [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
 public class Book
 {
 	public int BookId { get; set; }

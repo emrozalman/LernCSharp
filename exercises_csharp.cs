@@ -618,33 +618,23 @@ static void Main(string[] args)
 	} 
 } 
 
-27-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+27-      
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	string[] cities = { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI", "AMSTERDAM", "ROME"};
-        
-        var cityGrs = from city in cities
-                       group city by city.Length into c
-		               select c;       
-		 
-		foreach (var cg in cityGrs)
-        {
-          Console.WriteLine("\n");
-          foreach(var c in cg) {
-          	Console.Write(c + " , ");
-          }          
-        } 
-      }
-    }  
-}
+	string[] cities = { "CALIFORNIA", "PARIS", "NEW DELHI", "LONDON", "ABU DHABI", "ZURICH", "NAIROBI", "AMSTERDAM", "ROME"};
+
+	var cityGrs = from city in cities
+				   group city by city.Length into c
+				   select c;       
+	 
+	foreach (var cg in cityGrs)
+	{
+	  Console.WriteLine("\n");
+	  foreach(var c in cg) {
+		Console.Write(c + " , ");
+	  }          
+	} 
+} 
 
 28-       
 static void Main(string[] args)
@@ -663,45 +653,34 @@ static void Main(string[] args)
 	}		
 } 
 
-29-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace exercises
+29-       
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	var itemlist = (from c in Item_Mast.GetItemMast()
-					select c.ItemDes)
-                    .Distinct()
-					.OrderBy(x => x);
-                                    
-        foreach (var item in itemlist)
-        {
-        	Console.WriteLine(item);        
-        }		
-      }
-    } 
-    
-    class Item_Mast
+	var itemlist = (from c in Item_Mast.GetItemMast()
+				select c.ItemDes)
+				.Distinct()
+				.OrderBy(x => x);
+								
+	foreach (var item in itemlist)
 	{
-      public int 	ItemId { get; set; }
-      public string ItemDes { get; set; }
+		Console.WriteLine(item);        
+	}		
+}    
+class Item_Mast
+{
+	public int 	ItemId { get; set; }
+	public string ItemDes { get; set; }
 
-      public static List<Item_Mast> GetItemMast()
-      {
-          List<Item_Mast> itemlist = new List<Item_Mast>();
-          itemlist.Add(new Item_Mast() { ItemId = 1, ItemDes = "Biscuit  " });
-          itemlist.Add(new Item_Mast() { ItemId = 2, ItemDes = "Honey    " });
-          itemlist.Add(new Item_Mast() { ItemId = 3, ItemDes = "Butter   " });
-          itemlist.Add(new Item_Mast() { ItemId = 4, ItemDes = "Brade    " });
-          itemlist.Add(new Item_Mast() { ItemId = 5, ItemDes = "Honey    " });
-          itemlist.Add(new Item_Mast() { ItemId = 6, ItemDes = "Biscuit  " });
-          return itemlist;
-      }
+	public static List<Item_Mast> GetItemMast()
+	{
+	  List<Item_Mast> itemlist = new List<Item_Mast>();
+	  itemlist.Add(new Item_Mast() { ItemId = 1, ItemDes = "Biscuit  " });
+	  itemlist.Add(new Item_Mast() { ItemId = 2, ItemDes = "Honey    " });
+	  itemlist.Add(new Item_Mast() { ItemId = 3, ItemDes = "Butter   " });
+	  itemlist.Add(new Item_Mast() { ItemId = 4, ItemDes = "Brade    " });
+	  itemlist.Add(new Item_Mast() { ItemId = 5, ItemDes = "Honey    " });
+	  itemlist.Add(new Item_Mast() { ItemId = 6, ItemDes = "Biscuit  " });
+	  return itemlist;
 	}
 }
 
@@ -748,86 +727,60 @@ public static bool test(string text)
 	return result;
 }
 
-33-
-using System;
-using System.Text.RegularExpressions;
-
-namespace exercises
+33-       
+static void Main(string[] args)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	Console.WriteLine("Suuu#21g" + " -> " + test("Suuu#21g"));
-        Console.WriteLine("W#1g@" + " -> " + test("W#1g@"));
-        Console.WriteLine("a&&g@" + " -> " + test("a&&g@"));
-        Console.WriteLine("sdsd723#$Amid" + " -> " + test("sdsd723#$Amid"));
-        Console.WriteLine("sdsd723#$Amidkiouy" + " -> " + test("sdsd723#$Amidkiouy"));
-      }
-      
-      public static bool test(string text)
-      {
-      	return text.Length >= 7 && text.Length <= 16 
-        && Regex.IsMatch(text, @"[a-z]") 
-        && Regex.IsMatch(text, @"[A-Z]")
-        && Regex.IsMatch(text, @"[0-9]")
-        && Regex.IsMatch(text, @"[!@#$%^]")
-        && !Regex.IsMatch(text, @"[^\dA-Za-z!@#$%^]");
-      }
-    }  
+	Console.WriteLine("Suuu#21g" + " -> " + test("Suuu#21g"));
+	Console.WriteLine("W#1g@" + " -> " + test("W#1g@"));
+	Console.WriteLine("a&&g@" + " -> " + test("a&&g@"));
+	Console.WriteLine("sdsd723#$Amid" + " -> " + test("sdsd723#$Amid"));
+	Console.WriteLine("sdsd723#$Amidkiouy" + " -> " + test("sdsd723#$Amidkiouy"));
 }
 
-34-
-using System;
-
-namespace exercises
+public static bool test(string text)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	Console.WriteLine("AACC, PPRR" + " -> " + test("AACC", "PPRR"));
-        Console.WriteLine("FFGG, ADAD" + " -> " + test("FFGG", "ADAD"));
-      }
-      
-      public static bool test(string text1, string text2)
-        {
-            for (int i = 0; i < text1.Length; i++)
-            {
-                if (text1.IndexOf(text1.Substring(i, 1), i + 1) != text2.IndexOf(text2.Substring(i, 1), i + 1))
-                    return false;
-            }
-           return true;
-        }
-    }  
+	return text.Length >= 7 && text.Length <= 16 
+		&& Regex.IsMatch(text, @"[a-z]") 
+		&& Regex.IsMatch(text, @"[A-Z]")
+		&& Regex.IsMatch(text, @"[0-9]")
+		&& Regex.IsMatch(text, @"[!@#$%^]")
+		&& !Regex.IsMatch(text, @"[^\dA-Za-z!@#$%^]");
+} 
+
+34-       
+static void Main(string[] args)
+{
+	Console.WriteLine("AACC, PPRR" + " -> " + test("AACC", "PPRR"));
+	Console.WriteLine("FFGG, ADAD" + " -> " + test("FFGG", "ADAD"));
 }
 
-35-
-using System;
-using System.Text.RegularExpressions;
-
-namespace exercises
+public static bool test(string text1, string text2)
 {
-	class Program
-    {       
-      static void Main(string[] args)
-      {
-      	Regex rx = new Regex(@"\b(?<word>[a-zA-Z#]+)\s+(\k<word>)\b",
-          RegexOptions.Compiled | RegexOptions.IgnoreCase);
-          
-        MatchCollection matches = rx.Matches("C# C# syntax is highly expressive, yet it is is also simple and easy to to learn learn.");
-        
-        foreach (Match match in matches)
-        {
-            GroupCollection groups = match.Groups;
-            Console.WriteLine("'{0}' repeated at positions {1} and {2}",
-                              groups["word"].Value,
-                              groups[0].Index,
-                              groups[1].Index);
-        }        
-      }      
-    }  
+	for (int i = 0; i < text1.Length; i++)
+	{
+		if (text1.IndexOf(text1.Substring(i, 1), i + 1) != text2.IndexOf(text2.Substring(i, 1), i + 1))
+			return false;
+	}
+   return true;
 }
+
+35-       
+static void Main(string[] args)
+{
+	Regex rx = new Regex(@"\b(?<word>[a-zA-Z#]+)\s+(\k<word>)\b",
+	  RegexOptions.Compiled | RegexOptions.IgnoreCase);
+	  
+	MatchCollection matches = rx.Matches("C# C# syntax is highly expressive, yet it is is also simple and easy to to learn learn.");
+
+	foreach (Match match in matches)
+	{
+		GroupCollection groups = match.Groups;
+		Console.WriteLine("'{0}' repeated at positions {1} and {2}",
+						  groups["word"].Value,
+						  groups[0].Index,
+						  groups[1].Index);
+	}        
+}  
 
 36-      
 static void Main(string[] args)
@@ -1719,7 +1672,7 @@ public void OnGet()
 	book.Promotion = new PriceOffer
 	{
 		NewPrice = book.Price / 2,
-		PromotionalText = "Half price todayxxxx!"
+		PromotionalText = "Half price today!"
 	};
 
 	_db.SaveChanges();
