@@ -1566,8 +1566,8 @@ exec sp_executesql N'SET IMPLICIT_TRANSACTIONS OFF;
 SET NOCOUNT ON;
 INSERT INTO [Books] ([Description], [ImageUrl], [Price], [PublishedOn], [Publisher], [SoftDeleted], [Title])  
 OUTPUT INSERTED.[BookId]
-VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
-',N'@p0 nvarchar(4000),
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);',
+N'@p0 nvarchar(4000),
 @p1 nvarchar(4000),
 @p2 decimal(18,2),
 @p3 datetime2(7),
@@ -1955,8 +1955,8 @@ public void OnGet()
 SELECT [b].[Title], [b].[Price], 
 ( SELECT COUNT(*)      
   FROM [Review] AS [r]
-  WHERE [b].[BookId] = [r].[BookId]) 
-AS [NumReviews]  FROM [Books] AS [b]
+  WHERE [b].[BookId] = [r].[BookId]) AS [NumReviews]  
+FROM [Books] AS [b]
 
 91-
 public void OnGet()
@@ -1970,4 +1970,154 @@ public void OnGet()
 	_db.SaveChanges();
 }
 
+92-
+public void OnGet()
+{
+	var book = _db.Books
+		.Include(book => book.AuthorsLink
+			.OrderBy(bookAuthor => bookAuthor.AuthorId))
+			.ThenInclude(bookAuthor => bookAuthor.Author)
+		.Single(book => book.Title == "Achtsamkeit");
+}
 
+93-
+public void OnGet()
+{
+	var book = _db.Books.Single(book => book.Title == "Achtsamkeit");
+
+	_db.Entry(book)
+		.Collection(book => book.AuthorsLink).Load();
+
+	foreach( var authorLink in book.AuthorsLink)
+	{
+		_db.Entry(authorLink)
+			.Reference(bookAuthor => bookAuthor.Author).Load();
+	}                
+}
+
+94-
+public void OnGet()
+{
+	var book = _db.Books
+		.Select(book => new
+		{
+			book.BookId,
+			book.Title,
+			AuthorsString = string.Join(", ", 
+							book.AuthorsLink
+							.Select(ba => ba.Author.Name))
+
+		}
+		).Single(book => book.Title == "Achtsamkeit");             
+}
+
+95-
+SELECT [t].[BookId], [t].[Title], [t0].[Name], [t0].[BookId], [t0].[AuthorId], [t0].[AuthorId0]  
+FROM ( SELECT TOP(2) [b].[BookId], [b].[Title] 
+	FROM [Books] AS [b] 
+	WHERE [b].[Title] = N'Achtsamkeit'  ) AS [t]  
+LEFT JOIN ( SELECT [a].[Name], [b0].[BookId], [b0].[AuthorId], [a].[AuthorId] AS [AuthorId0]      
+	FROM [BookAuthor] AS [b0]
+	INNER JOIN [Authors] AS [a] ON [b0].[AuthorId] = [a].[AuthorId]  ) AS [t0] ON [t].[BookId] = [t0].[BookId] 
+ORDER BY [t].[BookId], [t0].[BookId], [t0].[AuthorId]
+
+96-
+public void OnGet()
+{
+	var books = _db.Books
+		.AsNoTracking()
+		.MapBookToDto();
+
+	foreach(var dto in books)
+	{
+		...
+	}
+}
+		
+public static class MyExtension
+{
+	public static IQueryable<BookListDto> MapBookToDto(this IQueryable<Book> books)
+	{
+		return books.Select(book => new BookListDto
+		{
+			BookId = book.BookId,
+			Title = book.Title,
+			Price = book.Price,
+			ActualPrice = book.Promotion == null ? book.Price : book.Promotion.NewPrice,
+			Authors = string.Join(", ", book.AuthorsLink.Select(ba => ba.Author.Name)),
+			ReviewsCount = book.Reviews.Count,
+			ReviewsAverageVotes = book.Reviews
+								.Select(review => (double?) review.NumStars).Average(),
+			TagStrings = book.Tags.Select(x => x.TagId).ToArray(),
+		});
+	}
+}
+
+97-
+public void OnGet()
+{
+	var books = _db.Books
+		.AsNoTracking()
+		.MapBookToDto()
+		.OrderBooksBy(OrderByOptions.ByPriceHighestFirst);
+
+	foreach(var dto in books)
+	{
+		// ...
+	}
+}
+		
+public static IQueryable<BookListDto> OrderBooksBy(this IQueryable<BookListDto> books, 
+                                                            OrderByOptions orderByOptions)
+{
+	switch (orderByOptions)
+	{
+		case OrderByOptions.SimpleOrder:
+			return books.OrderByDescending(x => x.BookId);
+		case OrderByOptions.ByVotes:
+			return books.OrderByDescending(x => x.ReviewsAverageVotes);
+		case OrderByOptions.ByPriceLowestFirst:
+			return books.OrderBy(x => x.ActualPrice);
+		case OrderByOptions.ByPriceHighestFirst:
+			return books.OrderByDescending(x => x.ActualPrice);
+		default:
+			throw new ArgumentOutOfRangeException(nameof(orderByOptions), 
+													orderByOptions, null);
+	}           
+}
+
+98-
+public void OnGet()
+{
+	var books = _db.Books
+		.AsNoTracking()
+		.MapBookToDto()
+		.OrderBooksBy(OrderByOptions.ByPriceHighestFirst)
+		.FilterBooksBy(BooksFilterBy.ByTags, ".NET");
+
+	foreach (var dto in books)
+	{
+		// ...
+	}
+}
+		
+public static IQueryable<BookListDto> FilterBooksBy(this IQueryable<BookListDto> books,
+                                                            BooksFilterBy filterBy,
+                                                            string filterValue)
+{
+	if(string.IsNullOrEmpty(filterValue))
+		return books;
+
+	switch (filterBy)
+	{
+		case BooksFilterBy.NoFilter:
+			return books;
+		case BooksFilterBy.ByVotes:
+			var filterVote = int.Parse(filterValue);
+			return books.Where(x => x.ReviewsAverageVotes > filterVote);
+		case BooksFilterBy.ByTags:
+			return books.Where(x => x.TagStrings.Any(y => y == filterValue));                        
+		default:
+			throw new ArgumentOutOfRangeException(nameof(filterBy), filterBy, null);
+	}            
+}

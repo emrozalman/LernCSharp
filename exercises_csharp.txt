@@ -352,35 +352,35 @@ Expected output:
 'to' repeated at positions 69 and 72
 'learn' repeated at positions 75 and 81
 
-36- 14 Write a C# Sharp program to remove the special characters from a given text. Return the new string which allowed alphanumeric characters, spaces, underscores _ and dashes -
+36- 15 Write a C# Sharp program to remove the special characters from a given text. Return the new string which allowed alphanumeric characters, spaces, underscores _ and dashes -
 Sample Data:
 ("AA@%^&CC") -> "AACC"
 ("Python") -> "Python"
 ("w3resource.com") -> "w3resourcecom"
 
-37- 14 Write a C# Sharp program to find the word "C#" in a given string. If the word "C#" found return "C# document found." otherwise return “Sorry no C# document!". Mit regulären Ausdrücken lösen!
+37- 15 Write a C# Sharp program to find the word "C#" in a given string. If the word "C#" found return "C# document found." otherwise return “Sorry no C# document!". Mit regulären Ausdrücken lösen!
 Sample Data:
 ("C# Exercises") -> "C# document found."
 ("Python Exercises") -> "Sorry no C# document!"
 ("Tutorial on c#") -> "C# document found."
 
-38- 14 Write a program in C# Sharp to check whether a character is an alphabet and not and if so, go to check for the case.
+38- 15 Write a program in C# Sharp to check whether a character is an alphabet and not and if so, go to check for the case.
 Test Data :
 Input a character: Z
 Expected Output :
 "uppercase" or "lowercase" or "not an alphabetic character"
 
-39- 14 Write a program which asks the user for an integer number and answers if it is prime number or not.
+39- 15 Write a program which asks the user for an integer number and answers if it is prime number or not.
 Test Data :
 Enter a number: 7
 Expected Output:
 "prime number" or "no prime number"
 
-40- 14 Write a C# Sharp program to calculate the full product of two 32-bit numbers.
+40- 15 Write a C# Sharp program to calculate the full product of two 32-bit numbers.
 Expected Output:
 2147483647 * 2147483647 = 4611686014132420609
 
-41- 14 Use an array delegate to compute the Diameter, Circumference, and Area of a circle with radious "10".
+41- 15 Use an array delegate to compute the Diameter, Circumference, and Area of a circle with radious "10".
 Test Data :
 public class Circle
 {
@@ -405,7 +405,7 @@ Diameter         : 20
 Circumference    : 62.8318
 Area             : 314.159
 
-42- 14 Implement multicast delegates using the Add and Sub methods.
+42- 15 Implement multicast delegates using the Add and Sub methods.
 Test Data :
 public class Oper
 {
@@ -424,14 +424,14 @@ Expected Output:
 4 - 2 = 2
 1 + 9 = 10
 
-43- 14 Sort the numbers { 3, 0, 2, 5, -1, 4, 1 } with bubble sort. Display the array before and after sorting.
+43- 15 Sort the numbers { 3, 0, 2, 5, -1, 4, 1 } with bubble sort. Display the array before and after sorting.
 
-44- 14 Write a C# Sharp program to check whether a given integer is a palindrome integer or not. Return true if the number is a palindrome, otherwise return false. 
+44- 15 Write a C# Sharp program to check whether a given integer is a palindrome integer or not. Return true if the number is a palindrome, otherwise return false. 
 123456 => False
 16461  => True
 -121   => False
 
-45- 14 Implement Stock() and PriceChangedEventArgs()
+45- 15 Implement Stock() and PriceChangedEventArgs()
 Test Data :
 static void Main(string[] args)
 {
@@ -456,20 +456,20 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-46- 14 Write the Iterator "EvenSequence" to return the even numbers in the given range.
+46- 15 Write the Iterator "EvenSequence" to return the even numbers in the given range.
 Test Data :
 foreach(int ev in EvenSequence(6, 12))
 {
 	Console.Write(ev + " ");
 }
 
-47- 14 Write the low-lever code of the following enumeration.
+47- 15 Write the low-lever code of the following enumeration.
 foreach (char c in "Mona")
 {
 	Console.WriteLine(c);
 }
 
-48- 14 Write the Area method as extension method of the Circle class.
+48- 15 Write the Area method as extension method of the Circle class.
 public double Area(double Radius)
 {
 	const double PI = 3.14159;
@@ -501,7 +501,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-49- 14 How converts the compiler the following code with nullable value types?
+49- 15 How converts the compiler the following code with nullable value types?
 static void Main(string[] args)
 {
 	int? x = 5;
@@ -513,7 +513,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-50- 14 Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
+50- 15 Display just the even numbers by combining the following sequence with another sequence (EvenNumbersOnly).
 static IEnumerable<int> Numbers ()
 {
 	yield return 1;
@@ -850,7 +850,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-71- 4 [EFDemoApp] Create the table Books with the following columns.
+71- 5 [EFDemoApp] Create the table Books with the following columns.
 Title
 Description
 PublishedOn (DateTime)
@@ -859,9 +859,9 @@ Price (decimal)
 ImageUrl
 SoftDeleted (bool)
 
-72- 4 [EFDemoApp] Write the generated migrationBuilder.CreateTable().
+72- 5 [EFDemoApp] Write the generated migrationBuilder.CreateTable().
 
-73- 4 [EFDemoApp] Add a new Book to the Books table (without any relationship).
+73- 5 [EFDemoApp] Add a new Book to the Books table (without any relationship).
 Title -> Entity Framework Core IN ACTION
 Description -> An advanced book about EF Core
 PublishedOn -> 01.01.2022
@@ -870,9 +870,9 @@ Price (decimal) -> 66
 ImageUrl -> www.image.de/image
 SoftDeleted -> false
 
-74- 4 [EFDemoApp] Write the generated SQL statement of the previous task.
+74- 5 [EFDemoApp] Write the generated SQL statement of the previous task.
 
-75- 4 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
+75- 5 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
 public class Book
 {
 	public int BookId { get; set; }
@@ -892,17 +892,17 @@ public class PriceOffer
 	public string PromotionalText { get; set; }
 }
 
-76- 4 [EFDemoApp] Write the methods modelBuilder.Entity() for the one-to-one relationship of the previous task.
+76- 5 [EFDemoApp] Write the methods modelBuilder.Entity() for the one-to-one relationship of the previous task.
 
-77- 4 [EFDemoApp] Add a new promotional price to an existing book that does not have a promotional price yet.
+77- 5 [EFDemoApp] Add a new promotional price to an existing book that does not have a promotional price yet.
 
-78- 4 [EFDemoApp] Write the SQL queries of the previous task.
+78- 5 [EFDemoApp] Write the SQL queries of the previous task.
 
-79- 4 [EFDemoApp] Add a new promotional price to an existing book that already have a promotional price.
+79- 5 [EFDemoApp] Add a new promotional price to an existing book that already have a promotional price.
 
-80- 4 [EFDemoApp] Write the SQL queries of the previous task.
+80- 5 [EFDemoApp] Write the SQL queries of the previous task.
 
-81- 4 [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
+81- 5 [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
 public class Book
 {
 	public int BookId { get; set; }
@@ -923,7 +923,7 @@ public class Review
 	public string Comment { get; set; }
 }
 
-82- 3 [EFDemoApp] Add a new Book which contains a Review to the Books table.
+82- 5 [EFDemoApp] Add a new Book which contains a Review to the Books table.
 Title -> Entity Framework Core IN ACTION
 Description -> An advanced book about EF Core
 PublishedOn -> 01.01.2022
@@ -936,7 +936,7 @@ VoterName -> Hosai Hamidi
 NumStars -> 4
 Comment -> A nice book
 
-83- 3 [EFDemoApp] Create a many-to-many relationship between a Book and a Author.
+83- 5 [EFDemoApp] Create a many-to-many relationship between a Book and a Author.
 public class Book
 {
 	public int BookId { get; set; }
@@ -955,9 +955,9 @@ public class Author
 	public string Name { get; set; }        
 }
 
-84- 2 [EFDemoApp] Write the three (BookAuthor, Book, Author) modelBuilder.Entity() calls for modeling the previous many-to-many relationship.
+84- 5 [EFDemoApp] Write the three (BookAuthor, Book, Author) modelBuilder.Entity() calls for modeling the previous many-to-many relationship.
 
-85- [EFDemoApp] Create a many-to-many relationship between a Book and a Tag table using the "Autoconfigured By EF Core" feature.
+85- 5 [EFDemoApp] Create a many-to-many relationship between a Book and a Tag table using the "Autoconfigured By EF Core" feature.
 public class Book
 {
 	public int BookId { get; set; }
@@ -975,17 +975,54 @@ public class Tag
 	public string TagId { get; set; }	
 }
 
-86- Write the code for the eager loading of the first book with the corresponding Reviews relationship and write also the generated SQL queries.
+86- 5 [EFDemoApp] Write the code for the eager loading of the first book with the corresponding Reviews relationship and write also the generated SQL queries.
 
-87- Write the code to read the number of reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
+87- 5 [EFDemoApp] Write the code to read the number of reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
 
-88- Write the code to read the reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
+88- 5 [EFDemoApp] Write the code to read the reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
 
-89- Write the code to read the NumStars of all reviews of the first book as a list unsing the "Explicit Loading". Write the generated SQL queries.
+89- 5 [EFDemoApp] Write the code to read the NumStars of all reviews of the first book as a list unsing the "Explicit Loading". Write the generated SQL queries.
 
-90- Write the code to read the Title, Price and number of reviews of all books using the "Select Loading".
+90- 5 [EFDemoApp] Write the code to read the Title, Price and number of reviews of all books using the "Select Loading". Write the generated SQL queries.
 
-91- Delete the book with the Description "EF Core" including its promotions in "Promotion" and reviews in "Reviews".
+91- 4 [EFDemoApp] Delete the book with the Description "EF Core" including its promotions in "Promotion" and reviews in "Reviews".
 
+92- [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors (eager loading). Order the authors by the author IDs.
+
+93- [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors (explicit loading).
+
+94- [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors as comma separated author names (select method). Use the non-sql command string.Join().
+
+95- [EFDemoApp] Write the generated SQL queries of the prevoius task.  
+
+96- [EFDemoApp] Write the "MapBookToDto()" extension function and read the DTOs as readonly.
+public class BookListDto
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+	public decimal Price { get; set; }
+	public decimal ActualPrice { get; set; }
+	public string Authors { get; set; }
+	public int ReviewsCount { get; set; }
+	public double? ReviewsAverageVotes { get; set; }
+	public string[] TagStrings { get; set; }
+}
+
+97- [EFDemoApp] Extend the solution of the previous task by implementing and calling the extension function "OrderBooksBy()".
+public enum OrderByOptions
+{
+	SimpleOrder,
+	ByVotes,
+	ByPriceLowestFirst,
+	ByPriceHighestFirst
+};
+
+98- [EFDemoApp] Extend the solution of the previous task by implementing and calling the extension function "FilterBooksBy()".
+public enum BooksFilterBy
+{ 
+	NoFilter,
+	ByVotes,
+	ByTags
+};
 
 
