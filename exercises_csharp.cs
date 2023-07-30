@@ -2121,3 +2121,81 @@ public static IQueryable<BookListDto> FilterBooksBy(this IQueryable<BookListDto>
 			throw new ArgumentOutOfRangeException(nameof(filterBy), filterBy, null);
 	}            
 }
+
+99-
+public void OnGet()
+{
+	var foundAuthor = _db.Authors
+		.SingleOrDefault(author => author.Name == "Eckert Tolle");
+	if (foundAuthor == null)
+	{
+		throw new Exception("Author not found");
+	}
+
+	var book = new Book
+	{
+		Title = "Test Book",
+		PublishedOn = DateTime.Today,
+		Description = "",
+		Publisher = "",
+		Price = 0,
+		ImageUrl = ""
+	};
+
+	book.AuthorsLink = new List<BookAuthor>
+	{
+		new BookAuthor
+		{
+			Book = book,
+			Author = foundAuthor
+		}
+	};
+
+	_db.Add(book);
+	_db.SaveChanges();
+}
+
+100-
+public ChangePubDateDto GetOriginal(int id)
+{
+	return _db.Books
+		.Select(p => new ChangePubDateDto
+		{
+			BookId = p.BookId,
+			Title = p.Title,
+			PublishedOn = p.PublishedOn
+		})
+		.Single(k => k.BookId == id);
+}
+
+public Book UpdateBook(ChangePubDateDto dto)
+{
+	var book = _db.Books.SingleOrDefault(x => x.BookId == dto.BookId);
+	if(book == null)
+	{
+		throw new ArgumentException("Book not found");
+	}
+	book.PublishedOn = DateTime.Today;
+	_db.SaveChanges();
+	return book;
+}
+
+101-
+public string GetModifiedAuthor()
+{
+	var author = _db.Books
+		.AsNoTracking()
+		.Where(p => p.Title == "Achtsamkeit")
+		.Select(p => p.AuthorsLink.First().Author)
+		.Single();
+	author.Name = "New Author Name";
+	return JsonConvert.SerializeObject(author);
+}
+
+public void UpdateAuthor(string authorJson)
+{
+	var author = JsonConvert.DeserializeObject<Author>(authorJson);
+
+	_db.Authors.Update(author);
+	_db.SaveChanges();
+}

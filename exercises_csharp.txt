@@ -1025,4 +1025,51 @@ public enum BooksFilterBy
 	ByTags
 };
 
+99- [EFDemoApp] Add a book with an existing author.
+
+100- [EFDemoApp] Implement the "Disconnected Update with Reload" with the following methods.
+Update the PublishedOn to DateTime.Today.
+public class ChangePubDateDto
+{
+	public int BookId { get; set; }
+	public string Title { get; set; }
+
+	[DataType(DataType.Date)]
+	public DateTime PublishedOn { get; set; }
+}
+
+public ChangePubDateDto GetOriginal(int id)
+{
+	...
+}
+
+public Book UpdateBook(ChangePubDateDto dto)
+{
+	...
+}
+
+public void OnGet()
+{
+	var book = GetOriginal(2);
+	UpdateBook(book);
+}
+
+101- [EFDemoApp] Implement the "disconnected update, sending all the data" with the following methods simulating sending und receiving JSON data.
+Update the Author name of the book with title "Achtsamkeit" to "New Author Name".
+public string GetModifiedAuthor()
+{
+	...
+}
+
+public void UpdateAuthor(string authorJson)
+{
+	...
+}
+		
+public void OnGet()
+{
+	string authorJson = GetModifiedAuthor();
+	UpdateAuthor(authorJson);
+}
+
 
