@@ -2013,12 +2013,11 @@ public void OnGet()
 
 95-
 SELECT [t].[BookId], [t].[Title], [t0].[Name], [t0].[BookId], [t0].[AuthorId], [t0].[AuthorId0]  
-FROM ( SELECT TOP(2) [b].[BookId], [b].[Title] 
-	FROM [Books] AS [b] 
-	WHERE [b].[Title] = N'Achtsamkeit'  ) AS [t]  
+FROM ( SELECT TOP(2) [b].[BookId], [b].[Title] FROM [Books] AS [b] WHERE [b].[Title] = N'Achtsamkeit'  ) AS [t]  
 LEFT JOIN ( SELECT [a].[Name], [b0].[BookId], [b0].[AuthorId], [a].[AuthorId] AS [AuthorId0]      
 	FROM [BookAuthor] AS [b0]
-	INNER JOIN [Authors] AS [a] ON [b0].[AuthorId] = [a].[AuthorId]  ) AS [t0] ON [t].[BookId] = [t0].[BookId] 
+	INNER JOIN [Authors] AS [a] ON [b0].[AuthorId] = [a].[AuthorId]  ) 
+	AS [t0] ON [t].[BookId] = [t0].[BookId] 
 ORDER BY [t].[BookId], [t0].[BookId], [t0].[AuthorId]
 
 96-
@@ -2197,5 +2196,164 @@ public void UpdateAuthor(string authorJson)
 	var author = JsonConvert.DeserializeObject<Author>(authorJson);
 
 	_db.Authors.Update(author);
+	_db.SaveChanges();
+}
+
+102-
+public PriceOffer GetOriginal(int id)
+{
+	var book = _db.Books
+		.Include(b => b.Promotion)
+		.Single(b => b.BookId == id);
+
+	return book?.Promotion ?? new PriceOffer()
+	{
+		BookId = id,
+		NewPrice = book.Price,
+		PromotionalText = ""
+	};
+}
+
+public Book AddUpdatePriceOffer(PriceOffer promotion)
+{
+	var book = _db.Books
+		.Include(b => b.Promotion)
+		.Single(b => b.BookId == promotion.BookId);
+
+	if(book.Promotion == null)
+	{
+		book.Promotion = promotion;
+	}
+	else
+	{
+		book.Promotion.NewPrice = promotion.NewPrice;
+		book.Promotion.PromotionalText = promotion.PromotionalText + " changed!";
+	}
+
+	_db.SaveChanges();
+	return book;
+}
+
+103-
+public void OnGet()
+{
+	var book = _db.Books
+		.First(b => b.Promotion == null);
+
+	_db.Add(new PriceOffer {
+		BookId = book.BookId,
+		NewPrice = book.Price / 2,
+		PromotionalText = "Half price today!"
+	});
+
+	_db.SaveChanges();
+}
+
+104-
+public void OnGet()
+{
+	var book = _db.Books
+		.Include(b => b.Reviews)
+		.First();
+
+	book.Reviews.Add(new Review
+	{
+		VoterName = "Unit Test",
+		NumStars = 5,
+		Comment = "Great book!"
+	});
+
+	_db.SaveChanges();
+}
+
+105-
+public void OnGet()
+{
+	var book = _db.Books
+		.Include(b => b.Reviews)
+		.Single(b => b.BookId == 1);
+
+	book.Reviews = new List<Review>
+	{
+		new Review
+		{
+			VoterName = "Mona",
+			NumStars = 3,
+			Comment = "The book is ok"
+		}
+	};
+
+	_db.SaveChanges();
+}
+
+106-
+public Review GetBlankReview(int id, out string title)
+{
+	title = _db.Books
+		.Where(b => b.BookId == id)
+		.Select(b => b.Title)
+		.Single();
+
+	return new Review
+	{
+		BookId = id
+	};
+}
+
+public Book AddReviewToBook(Review review)
+{
+	var book = _db.Books
+		.Include(b => b.Reviews)
+		.Single(b => b.BookId == review.BookId);
+
+	review.VoterName = "Geeti";
+	review.NumStars = 1;
+	review.Comment = "The book is not good";
+
+	book.Reviews.Add(review);
+	_db.SaveChanges();
+	return book;
+}
+
+107-
+public void OnGet()
+{
+	var book = _db.Books
+		.Include(b => b.AuthorsLink)
+		.Single(b => b.Title == "Neuanfang");
+
+	var existingAuthor = _db.Authors
+		.Single(b => b.Name == "Ajan Chah");
+
+	book.AuthorsLink.Add(new BookAuthor 
+	{
+		Book = book,
+		Author = existingAuthor
+	});
+
+	_db.SaveChanges();
+}
+
+108-
+public void OnGet()
+{
+	var book = _db.Books
+		.Include(b => b.Tags)
+		.Single(b => b.Title == "Neuanfang");
+
+	var existingTag = _db.Tags
+		.Single(b => b.TagId == "Roman");
+
+	book.Tags.Add(existingTag);
+	_db.SaveChanges();
+}
+
+109-
+public void OnGet()
+{
+	int reviewToChangeId = 7;
+	int newBookId = 5;
+	var reviewToChange = _db.Find<Review>(reviewToChangeId);
+	reviewToChange.BookId = newBookId;
 	_db.SaveChanges();
 }
