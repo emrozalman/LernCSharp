@@ -2357,3 +2357,12 @@ public void OnGet()
 	reviewToChange.BookId = newBookId;
 	_db.SaveChanges();
 }
+
+110-
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+	...
+
+	modelBuilder.Entity<Book>()
+		.HasQueryFilter(p => !p.SoftDeleted);
+}
