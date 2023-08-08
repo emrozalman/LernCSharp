@@ -1054,7 +1054,7 @@ public void OnGet()
 	UpdateBook(book);
 }
 
-101- 2 [EFDemoApp] Implement the "disconnected update, sending all the data" with the following methods simulating sending und receiving JSON data.
+101- 4 [EFDemoApp] Implement the "disconnected update, sending all the data" with the following methods simulating sending und receiving JSON data.
 Update the first Author name of the book with title "Achtsamkeit" to "New Author Name".
 public string GetModifiedAuthor()
 {
@@ -1072,7 +1072,7 @@ public void OnGet()
 	UpdateAuthor(authorJson);
 }
 
-102- 2 [EFDemoApp] Implement the "Disconnected Update with Reload" with the following methods. Update PromotionalText by appending " changed!" to it. Add a promotional price if the book with the id does not have a promotional price.
+102- 4 [EFDemoApp] Implement the "Disconnected Update with Reload" with the following methods. Update PromotionalText by appending " changed!" to it. Add a promotional price if the book with the id does not have a promotional price.
 public void OnGet()
 {
 	var promotion = GetOriginal(1);
@@ -1089,13 +1089,13 @@ public Book AddUpdatePriceOffer(PriceOffer promotion)
 	...
 }
 
-103- 2 [EFDemoApp] Implement an alternative way of updating the relationship PriceOffer. Add a PriceOffer for the first book which does not have a promotional price. Add a new row directly.
+103- 4 [EFDemoApp] Implement an alternative way of updating the relationship PriceOffer. Add a PriceOffer for the first book which does not have a promotional price. Add a new row directly.
 
-104- 2 [EFDemoApp] Add a review to the first book in the connected state.
+104- 4 [EFDemoApp] Add a review to the first book in the connected state.
 
-105- 2 [EFDemoApp] Replace the whole collection of reviews of the book with id "1" with another collection with one review.
+105- 4 [EFDemoApp] Replace the whole collection of reviews of the book with id "1" with another collection with one review.
 
-106- 2 [EFDemoApp] Add a new review to the book with the id "2" using "Disconnected-State Update".
+106- 4 [EFDemoApp] Add a new review to the book with the id "2" using "Disconnected-State Update".
 public void OnGet()
 {
 	string title;
@@ -1113,11 +1113,11 @@ public Book AddReviewToBook(Review review)
 	...
 }
 
-107- 2 [EFDemoApp] Add a new existing author "Ajan Chah" to the book with the title "Neuanfang".
+107- 4 [EFDemoApp] Add a new existing author "Ajan Chah" to the book with the title "Neuanfang".
 
-108- 1 [EFDemoApp] Add an existing tag to the book with the title "Neuanfang" via a direct many-to-many relationship.
+108- 4 [EFDemoApp] Add an existing tag to the book with the title "Neuanfang" via a direct many-to-many relationship.
 
-109- 1 [EFDemoApp] Update the foreign key "review.BookId" to change the relationship.
+109- 4 [EFDemoApp] Update the foreign key "review.BookId" to change the relationship.
 public void OnGet()
 {
 	int reviewToChangeId = 7;
@@ -1125,7 +1125,7 @@ public void OnGet()
 	. . .
 }
 
-110- 1 [EFDemoApp] Add a global query filter to the DbSet<Book> Books property to enable "soft-delete approach".
+110- 4 [EFDemoApp] Add a global query filter to the DbSet<Book> Books property to enable "soft-delete approach".
 public void OnGet()
 {
 	var book = _db.Books

@@ -2342,7 +2342,7 @@ public void OnGet()
 		.Single(b => b.Title == "Neuanfang");
 
 	var existingTag = _db.Tags
-		.Single(b => b.TagId == "Roman");
+		.Single(t => t.TagId == "Roman");
 
 	book.Tags.Add(existingTag);
 	_db.SaveChanges();
