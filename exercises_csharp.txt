@@ -850,7 +850,7 @@ static void Main(string[] args)
 	Console.Read();
 }
 
-71- 5 [EFDemoApp] Create the table Books with the following columns.
+71- 6 [EFDemoApp] Create the table Books with the following columns.
 Title
 Description
 PublishedOn (DateTime)
@@ -859,9 +859,9 @@ Price (decimal)
 ImageUrl
 SoftDeleted (bool)
 
-72- 5 [EFDemoApp] Write the generated migrationBuilder.CreateTable().
+72- 6 [EFDemoApp] Write the generated migrationBuilder.CreateTable().
 
-73- 5 [EFDemoApp] Add a new Book to the Books table (without any relationship).
+73- 6 [EFDemoApp] Add a new Book to the Books table (without any relationship).
 Title -> Entity Framework Core IN ACTION
 Description -> An advanced book about EF Core
 PublishedOn -> 01.01.2022
@@ -870,9 +870,9 @@ Price (decimal) -> 66
 ImageUrl -> www.image.de/image
 SoftDeleted -> false
 
-74- 5 [EFDemoApp] Write the generated SQL statement of the previous task.
+74- 6 [EFDemoApp] Write the generated SQL statement of the previous task.
 
-75- 5 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
+75- 6 [EFDemoApp] Create a one-to-one relationship of PriceOffer to a Book.
 public class Book
 {
 	public int BookId { get; set; }
@@ -892,17 +892,17 @@ public class PriceOffer
 	public string PromotionalText { get; set; }
 }
 
-76- 5 [EFDemoApp] Write the methods modelBuilder.Entity() for the one-to-one relationship of the previous task.
+76- 6 [EFDemoApp] Write the methods modelBuilder.Entity() for the one-to-one relationship of the previous task.
 
-77- 5 [EFDemoApp] Add a new promotional price to an existing book that does not have a promotional price yet.
+77- 6 [EFDemoApp] Add a new promotional price to an existing book that does not have a promotional price yet.
 
-78- 5 [EFDemoApp] Write the SQL queries of the previous task.
+78- 6 [EFDemoApp] Write the SQL queries of the previous task.
 
-79- 5 [EFDemoApp] Add a new promotional price to an existing book that already have a promotional price.
+79- 6 [EFDemoApp] Add a new promotional price to an existing book that already have a promotional price.
 
-80- 5 [EFDemoApp] Write the SQL queries of the previous task.
+80- 6 [EFDemoApp] Write the SQL queries of the previous task.
 
-81- 5 [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
+81- 6 [EFDemoApp] Create a one-to-many relationship of Reviews to a Book. And write the modelBuilder.Entity() methods for EFDataAccessLibrary.Models.Review and EFDataAccessLibrary.Models.Book.
 public class Book
 {
 	public int BookId { get; set; }
@@ -923,7 +923,7 @@ public class Review
 	public string Comment { get; set; }
 }
 
-82- 5 [EFDemoApp] Add a new Book which contains a Review to the Books table.
+82- 6 [EFDemoApp] Add a new Book which contains a Review to the Books table.
 Title -> Entity Framework Core IN ACTION
 Description -> An advanced book about EF Core
 PublishedOn -> 01.01.2022
@@ -936,7 +936,7 @@ VoterName -> Hosai Hamidi
 NumStars -> 4
 Comment -> A nice book
 
-83- 5 [EFDemoApp] Create a many-to-many relationship between a Book and a Author.
+83- 6 [EFDemoApp] Create a many-to-many relationship between a Book and a Author.
 public class Book
 {
 	public int BookId { get; set; }
@@ -955,9 +955,9 @@ public class Author
 	public string Name { get; set; }        
 }
 
-84- 5 [EFDemoApp] Write the three (BookAuthor, Book, Author) modelBuilder.Entity() calls for modeling the previous many-to-many relationship.
+84- 6 [EFDemoApp] Write the three (BookAuthor, Book, Author) modelBuilder.Entity() calls for modeling the previous many-to-many relationship.
 
-85- 5 [EFDemoApp] Create a many-to-many relationship between a Book and a Tag table using the "Autoconfigured By EF Core" feature.
+85- 6 [EFDemoApp] Create a many-to-many relationship between a Book and a Tag table using the "Autoconfigured By EF Core" feature.
 public class Book
 {
 	public int BookId { get; set; }
@@ -975,27 +975,27 @@ public class Tag
 	public string TagId { get; set; }	
 }
 
-86- 5 [EFDemoApp] Write the code for the eager loading of the first book with the corresponding Reviews relationship and write also the generated SQL queries.
+86- 6 [EFDemoApp] Write the code for the eager loading of the first book with the corresponding Reviews relationship and write also the generated SQL queries.
 
-87- 5 [EFDemoApp] Write the code to read the number of reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
+87- 6 [EFDemoApp] Write the code to read the number of reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
 
-88- 5 [EFDemoApp] Write the code to read the reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
+88- 6 [EFDemoApp] Write the code to read the reviews of the first book by using the "Explicit Loading". Write the generated SQL queries.
 
-89- 5 [EFDemoApp] Write the code to read the NumStars of all reviews of the first book as a list unsing the "Explicit Loading". Write the generated SQL queries.
+89- 6 [EFDemoApp] Write the code to read the NumStars of all reviews of the first book as a list unsing the "Explicit Loading". Write the generated SQL queries.
 
-90- 5 [EFDemoApp] Write the code to read the Title, Price and number of reviews of all books using the "Select Loading". Write the generated SQL queries.
+90- 6 [EFDemoApp] Write the code to read the Title, Price and number of reviews of all books using the "Select Loading". Write the generated SQL queries.
 
-91- 5 [EFDemoApp] Delete the book with the Description "EF Core" including its promotions in "Promotion" and reviews in "Reviews".
+91- 6 [EFDemoApp] Delete the book with the Description "EF Core" including its promotions in "Promotion" and reviews in "Reviews".
 
-92- 5 [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors (eager loading). Order the authors by the author IDs.
+92- 6 [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors (eager loading). Order the authors by the author IDs.
 
-93- 5 [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors (explicit loading).
+93- 6 [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors (explicit loading).
 
-94- 5 [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors as comma separated author names (select method). Use the non-sql command string.Join().
+94- 6 [EFDemoApp] Read the book with the title "Achtsamkeit" with its authors as comma separated author names (select method). Use the non-sql command string.Join().
 
-95- 5 [EFDemoApp] Write the generated SQL queries of the prevoius task.  
+95- 6 [EFDemoApp] Write the generated SQL queries of the prevoius task.  
 
-96- 5 [EFDemoApp] Write the "MapBookToDto()" extension function and read the DTOs as readonly.
+96- 6 [EFDemoApp] Write the "MapBookToDto()" extension function and read the DTOs as readonly.
 public class BookListDto
 {
 	public int BookId { get; set; }
@@ -1008,7 +1008,7 @@ public class BookListDto
 	public string[] TagStrings { get; set; }
 }
 
-97- 5 [EFDemoApp] Extend the solution of the previous task by implementing and calling the extension function "OrderBooksBy()".
+97- 6 [EFDemoApp] Extend the solution of the previous task by implementing and calling the extension function "OrderBooksBy()".
 public enum OrderByOptions
 {
 	SimpleOrder,
@@ -1017,7 +1017,7 @@ public enum OrderByOptions
 	ByPriceHighestFirst
 };
 
-98- 5 [EFDemoApp] Extend the solution of the previous task by implementing and calling the extension function "FilterBooksBy()".
+98- 6 [EFDemoApp] Extend the solution of the previous task by implementing and calling the extension function "FilterBooksBy()".
 public enum BooksFilterBy
 { 
 	NoFilter,
@@ -1025,9 +1025,9 @@ public enum BooksFilterBy
 	ByTags
 };
 
-99- 5 [EFDemoApp] Add a book with an existing author (with the author name "Eckert Tolle").
+99- 6 [EFDemoApp] Add a book with an existing author (with the author name "Eckert Tolle").
 
-100- 5 [EFDemoApp] Implement the "Disconnected Update with Reload" with the following methods.
+100- 6 [EFDemoApp] Implement the "Disconnected Update with Reload" with the following methods.
 Update the PublishedOn to DateTime.Today.
 public class ChangePubDateDto
 {
@@ -1054,7 +1054,7 @@ public void OnGet()
 	UpdateBook(book);
 }
 
-101- 4 [EFDemoApp] Implement the "disconnected update, sending all the data" with the following methods simulating sending und receiving JSON data.
+101- 6 [EFDemoApp] Implement the "disconnected update, sending all the data" with the following methods simulating sending und receiving JSON data.
 Update the first Author name of the book with title "Achtsamkeit" to "New Author Name".
 public string GetModifiedAuthor()
 {
@@ -1072,7 +1072,7 @@ public void OnGet()
 	UpdateAuthor(authorJson);
 }
 
-102- 4 [EFDemoApp] Implement the "Disconnected Update with Reload" with the following methods. Update PromotionalText by appending " changed!" to it. Add a promotional price if the book with the id does not have a promotional price.
+102- 6 [EFDemoApp] Implement the "Disconnected Update with Reload" with the following methods. Update PromotionalText by appending " changed!" to it. Add a promotional price if the book with the id does not have a promotional price.
 public void OnGet()
 {
 	var promotion = GetOriginal(1);
@@ -1089,13 +1089,13 @@ public Book AddUpdatePriceOffer(PriceOffer promotion)
 	...
 }
 
-103- 4 [EFDemoApp] Implement an alternative way of updating the relationship PriceOffer. Add a PriceOffer for the first book which does not have a promotional price. Add a new row directly.
+103- 6 [EFDemoApp] Implement an alternative way of updating the relationship PriceOffer. Add a PriceOffer for the first book which does not have a promotional price. Add a new row directly.
 
-104- 4 [EFDemoApp] Add a review to the first book in the connected state.
+104- 6 [EFDemoApp] Add a review to the first book in the connected state.
 
-105- 4 [EFDemoApp] Replace the whole collection of reviews of the book with id "1" with another collection with one review.
+105- 6 [EFDemoApp] Replace the whole collection of reviews of the book with id "1" with another collection with one review.
 
-106- 4 [EFDemoApp] Add a new review to the book with the id "2" using "Disconnected-State Update".
+106- 6 [EFDemoApp] Add a new review to the book with the id "2" using "Disconnected-State Update".
 public void OnGet()
 {
 	string title;
@@ -1113,11 +1113,11 @@ public Book AddReviewToBook(Review review)
 	...
 }
 
-107- 4 [EFDemoApp] Add a new existing author "Ajan Chah" to the book with the title "Neuanfang".
+107- 6 [EFDemoApp] Add a new existing author "Ajan Chah" to the book with the title "Neuanfang".
 
-108- 4 [EFDemoApp] Add an existing tag to the book with the title "Neuanfang" via a direct many-to-many relationship.
+108- 6 [EFDemoApp] Add an existing tag to the book with the title "Neuanfang" via a direct many-to-many relationship.
 
-109- 4 [EFDemoApp] Update the foreign key "review.BookId" to change the relationship.
+109- 6 [EFDemoApp] Update the foreign key "review.BookId" to change the relationship.
 public void OnGet()
 {
 	int reviewToChangeId = 7;
@@ -1125,7 +1125,7 @@ public void OnGet()
 	. . .
 }
 
-110- 4 [EFDemoApp] Add a global query filter to the DbSet<Book> Books property to enable "soft-delete approach".
+110- 6 [EFDemoApp] Add a global query filter to the DbSet<Book> Books property to enable "soft-delete approach".
 public void OnGet()
 {
 	var book = _db.Books

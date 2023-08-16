@@ -1656,7 +1656,7 @@ WHERE [p].[PriceOfferId] IS NULL
 
 exec sp_executesql 
 N'SET IMPLICIT_TRANSACTIONS OFF;  SET NOCOUNT ON;  
-INSERT INTO [PricesOffers] ([BookId], [NewPrice], [PromotionalText])  
+INSERT INTO [PricesOffers] (NewPrice, PromotionalText)  
 OUTPUT INSERTED.[PriceOfferId]  
 VALUES (@p0, @p1, @p2);  ',
 N'@p0 int,@p1 decimal(18,2),@p2 nvarchar(4000)',
